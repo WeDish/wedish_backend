@@ -1,4 +1,4 @@
-from datetime import date, timedelta
+from django.utils.timezone import now
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from treebeard.mp_tree import MP_Node
@@ -7,15 +7,15 @@ from treebeard.mp_tree import MP_Node
 class MenuModel(models.Model):
     name = models.CharField(_('Name'), max_length=30,
         help_text=_('ex.: Day menu, Festive menu, Ordinary menu'))
-    valid_from = models.DateField(_('Valid from'), null=True, blank=True, db_index=True, default=date.today())
-    valid_untill = models.DateField(_('Valid untill'), null=True, blank=True, db_index=True, default=date.today() + timedelta(days=7))
+    valid_from = models.DateField(_('Valid from'), null=True, blank=True, db_index=True, default=now)
+    valid_untill = models.DateField(_('Valid untill'), null=True, blank=True, db_index=True)
     
-    LOAN_STATUS = (
+    PUBLICITY_STATUS = (
         (0, _('Public')),
         (1, _('Private')),
     )
 
-    publicity = models.PositiveIntegerField(_('Publicity'), default=1, choices=LOAN_STATUS)
+    publicity = models.PositiveIntegerField(_('Publicity'), default=1, choices=PUBLICITY_STATUS)
 
     class Meta:
         ordering = ['name', 'valid_from']
