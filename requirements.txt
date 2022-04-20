@@ -5,6 +5,7 @@ Django==4.0.4
 django-extensions==3.1.5
 django-rest-framework==0.1.0
 django-rosetta==0.9.8
+django-treebeard==4.5.1
 djangorestframework==3.13.1
 idna==3.3
 polib==1.1.1
