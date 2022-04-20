@@ -17,7 +17,7 @@ class Order(models.Model):
 
 class Bill(models.Model):
     # payment = fk?
-    customer = models.CharField(_('Customer'))#??
+    customer = models.CharField(_('Customer'), max_length=100)#??
     total_price = models.IntegerField(_('Total price'), db_index=True)
     # order = fk?
 

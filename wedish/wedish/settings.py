@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     
     'wedish_site',
     'wedish_recipy',
+    'wedish_store',
+    'wedish_accounting',
     
     'rosetta',
     'tinymce',

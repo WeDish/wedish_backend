@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from PIL import Image
 from tinymce.models import HTMLField
+from wedish_store import models as store
 
 
 # Create your models here.
@@ -40,22 +41,22 @@ class GoodIngradient(models.Model):
         verbose_name=_("good"),
         related_name='ingredients',
     )
-    # ingradient = models.ForeignKey(
-    #     store.Product,
-    #     null=False,
-    #     on_delete=models.CASCADE,
-    #     verbose_name=_("ingredient"),
-    #     related_name='ingredients',
-    # )
-    # quantity = models.DecimalField(
-    #     _('quantity'), null=False, max_digits=10, decimal_places=2)
-    # unit = models.ForeignKey(
-    #     store.Unit,
-    #     null=False,
-    #     on_delete=models.CASCADE,
-    #     verbose_name=_("unit"),
-    #     related_name='ingredients',
-    # )
+    ingradient = models.ForeignKey(
+        store.Product,
+        null=True,
+        on_delete=models.CASCADE,
+        verbose_name=_("ingredient"),
+        related_name='ingredients',
+    )
+    quantity = models.DecimalField(
+        _('quantity'), null=False, max_digits=10, decimal_places=2, default=0)
+    unit = models.ForeignKey(
+        store.Unit,
+        null=True,
+        on_delete=models.CASCADE,
+        verbose_name=_("unit"),
+        related_name='ingredients',
+    )
     
     class Meta:
         verbose_name = _('good ingredient')
