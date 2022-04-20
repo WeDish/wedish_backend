@@ -11,7 +11,10 @@ class GoodAdmin(admin.ModelAdmin):
     search_fields = ('name', 'description')
     
 class GoodIngradientAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('good', 'ingradient', 'quantity', 'unit',)
+    list_display_links = ('good',)
+    list_filter = ('ingradient',)
+    search_fields = ('good', 'ingradient')
     
 admin.site.register(Good, GoodAdmin)
 admin.site.register(GoodIngradient, GoodIngradientAdmin)
