@@ -23,7 +23,7 @@ class Bill(models.Model):
 
 class VAT(models.Model):
     #country
-    rate = models.DecimalField(_('Rate'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
+    unit_rate = models.DecimalField(_('Rate'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
     start_date = models.DateTimeField(_('Start date'), auto_now_add=True)
     
     def __str__(self):
