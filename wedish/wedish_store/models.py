@@ -1,7 +1,6 @@
 from django.db import models
+from django.forms import CharField
 from django.utils.translation import gettext_lazy as _
-from PIL import Image
-from tinymce.models import HTMLField
 
 class Unit(models.Model):
     UNIT_CATEGORIES = (
@@ -22,7 +21,7 @@ class Unit(models.Model):
 class Brand(models.Model):
     name = models.CharField(_('name'), max_length=100, null=False, db_index=True)
     picture = models.ImageField(_('picture'), default='wedish_store/img/default_brand.jpg')
-    description = HTMLField(_('description'), max_length=10000, blank=True, default='')
+    description = CharField(_('description'), max_length=10000, blank=True, default='')
     created_at = models.DateTimeField(_('created at'), auto_now_add=True)
 
     class Meta:
