@@ -46,8 +46,8 @@ INSTALLED_APPS = [
     
     'rosetta',
     'tinymce',
+    'treebeard',
     'cities_light',
-
 ]
 
 MIDDLEWARE = [
