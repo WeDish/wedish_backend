@@ -1,4 +1,4 @@
-from wedish_backend.wedish.wedish_store.models import Category
+from .models import Category
 
 
 tree_data = [{'plot':{'name':'Category'}, 'children':[
