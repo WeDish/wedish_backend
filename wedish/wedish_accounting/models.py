@@ -2,7 +2,7 @@ from django.conf import settings
 from datetime import date
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-# from wedish_pub import Place
+from wedish_pub import Space
 
 class Order(models.Model):
 
@@ -11,11 +11,11 @@ class Order(models.Model):
     completed_at = models.DateTimeField(_('completed_at'), null=True, blank=True, db_index=True)
     table_number = models.CharField(_('Table number'), max_length=100, db_index=True)
     place = models.ForeignKey(
-        'Place',
+        'Space',
         on_delete=models.CASCADE,
         null=True,
-        verbose_name=_('Place'),
-        related_name='places',
+        verbose_name=_('Space'),
+        related_name='Spaces',
     )
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     # total_price = total_price (suma visu susijusiu OrderLine) 
