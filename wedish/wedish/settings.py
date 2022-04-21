@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     
     'rosetta',
     'tinymce',
+    'treebeard',
+
 
 ]
 
