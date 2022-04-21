@@ -59,14 +59,14 @@ class Bill(models.Model):
         verbose_name=_('Order'),
         related_name='orders'
     )
+
     total_price = models.IntegerField(_('Total price'), db_index=True)
     discount =  models.DecimalField(_('Discount'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
     tips =  models.DecimalField(_('Tips'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
-    #surinkti pvmus
+    # surinkti pvmus
     
 
 class VAT(models.Model):
-
     unit_rate = models.DecimalField(_('Rate'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
     start_date = models.DateTimeField(_('Start date'), auto_now_add=True)
     end_date = models.DateTimeField(_('End date'), blank=True, null=True )
