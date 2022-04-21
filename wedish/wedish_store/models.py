@@ -1,5 +1,4 @@
 from django.db import models
-from treebeard.mp_tree import MP_Node
 
 
 class Product(models.Model):
@@ -8,8 +7,8 @@ class Product(models.Model):
 
 class GenericProduct(models.Model):
     name = models.CharField(max_length=100)
-    # allergen foreign key? example: nuts , eggs, milk, wheat, soy, seafood
-    # type foreign key? example: vegan, vegetarian, meat, dairy, glutenfree...
+    #allergen foreign key? example: nuts , eggs, milk, wheat, soy, seafood
+    #type foreign key? example: vegan, vegetarian, meat, dairy, glutenfree...
 
 
 class Service(models.Model):
@@ -23,11 +22,4 @@ class Unit(models.Model):
 
 class Brand(models.Model):
     name = models.CharField(max_length=100)
-
-
-class Category(MP_Node):
-    name = models.CharField(max_length=100)
-    node_order_by = ['name']
-
-    def __str__(self):
-        return 'Category: {}'.format(self.name)
+    
