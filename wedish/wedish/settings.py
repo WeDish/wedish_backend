@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     
     'rosetta',
     'tinymce',
+    'cities_light',
 
 ]
 
