@@ -3,6 +3,7 @@ from datetime import date
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from wedish_pub import Space
+from cities_light.models import Country
 
 class Order(models.Model):
 
@@ -59,7 +60,7 @@ class Bill(models.Model):
         verbose_name=_('Order'),
         related_name='orders'
     )
-    total_price = models.IntegerField(_('Total price'), db_index=True)
+    total_price = models.DecimalField(_('Tips'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
     discount =  models.DecimalField(_('Discount'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
     tips =  models.DecimalField(_('Tips'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
     #surinkti pvmus
@@ -70,7 +71,12 @@ class VAT(models.Model):
     unit_rate = models.DecimalField(_('Rate'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
     start_date = models.DateTimeField(_('Start date'), auto_now_add=True)
     end_date = models.DateTimeField(_('End date'), blank=True, null=True )
-    # country = country fk i partraukti salis (Countries) is django_cities_light #11 tasko importuota Country
+    country = models.ForeignKey(
+        'Country',
+        on_delete=models.CASCADE,
+        null=True,
+    )
+    # country fk i partraukti salis (Countries) is django_cities_light #11 tasko importuota Country
     
     def __str__(self):
         return f'{self.rate} {self.start_date}'
