@@ -16,14 +16,14 @@ class OrderAdmin(admin.ModelAdmin):
 class OrderLineAdmin(admin.ModelAdmin):
     list_display = ('id', 'order', 'quantity',) 
     readonly_fields = ('id',) 
-    # fieldsets = (
-    #     (None, {
-    #         'fields': ('order', 'id', )
-    #     }),
-    #     (_('Availability'), {
-    #         'fields': ()
-    #     }),
-    # )
+    fieldsets = (
+        (None, {
+            'fields': ('order', 'total_price', )
+        }),
+        (_('Availability'), {
+            'fields': ('menu_item', 'quantity', 'order', 'total_price')
+        }),
+    )
 
 
 class BillAdmin(admin.ModelAdmin):

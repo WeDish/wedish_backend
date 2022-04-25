@@ -47,7 +47,8 @@ class OrderLine(models.Model):
         verbose_name=_('Order'),
         related_name='places',
     )
-    # total_price = (on_save menu.menu_item.price * quantity)
+    total_price = models.DecimalField(_('Total price'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
+    # (on_save menu.menu_item.price * quantity)
 
 
 class Bill(models.Model):
