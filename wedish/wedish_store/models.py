@@ -73,14 +73,7 @@ class Product(models.Model):
 
 class GenericProduct(models.Model):
     name = models.CharField(_('Name'), max_length=100, null=False, db_index=True)
-    product = models.ForeignKey(
-        Product,
-        null=True,
-        on_delete=models.CASCADE,
-        verbose_name=_("Product"),
-        related_name='generics',
-    )    
- 
+
 
     class Meta:
         verbose_name = _('generic product')
@@ -88,7 +81,7 @@ class GenericProduct(models.Model):
         ordering = ['name']
     
     def __str__(self) -> str:
-        return f'{self.product}'
+        return f'{self.name}'
 
 
 class ProductAllergen(models.Model):
