@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'wedish_menu',
     'wedish_site',
+    'wedish_pub',
     'wedish_recipy',
     'wedish_store',
     'wedish_accounting',
