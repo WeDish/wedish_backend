@@ -5,20 +5,29 @@ from model_utils.fields import StatusField
 from tinymce.models import HTMLField
 
 
-class Unit(models.Model):
-    UNIT_CATEGORIES = Choices(
-            (1, 'kilograms', _('kilograms')),
-            (2, 'litres', _('litres')),
+UNIT_CATEGORIES = Choices(
+            (1, 'kg', _('kilograms')),
+            (2, 'L', _('liters')),
             (3, 'pcs', _('units')),
     )
-    unit_category = StatusField(choices_name=UNIT_CATEGORIES, db_index=True)
 
-    class Meta:
-        verbose_name = _('unit')
-        verbose_name_plural = _('units')
-    
-    def __str__(self) -> str:
-        return f'{self.unit_category}'
+ALLERGEN_CATEGORIES = Choices(
+            ('none', _('none')),
+            ('celery', _('celery')),
+            ('glutten', _('cereals containing glutten')),
+            ('crustaceans', _('crustaceans')),
+            ('eggs', _('eggs')),
+            ('fish', _('fish')),
+            ('lupin', _('lupin')),
+            ('milk', _('milk')),
+            ('molluscs', _('molluscs')),
+            ('mustard', _('mustard')),
+            ('peanuts', _('peanuts')),
+            ('sesame', _('sesame')),
+            ('soybeans', _('soybeans')),
+            ('SO', _('sulphur dioxide and sulpites > 10 ppm')),
+            ('tree nuts', _('tree nuts')),
+    )
 
 
 class Brand(models.Model):
@@ -36,7 +45,6 @@ class Brand(models.Model):
 
 class Product(models.Model):
     name = models.CharField(_('Name'), max_length=100, null=False, db_index=True)
-    unit_rate = models.DecimalField(_('Unit Rate'), null=False, max_digits=10, decimal_places=2, default=0, help_text=_("Ration between generic_product.unit and unit"))
     brand = models.ForeignKey(
         Brand,
         null=False,
@@ -44,13 +52,7 @@ class Product(models.Model):
         verbose_name=_("Brand"),
         related_name='products',
     )
-    unit = models.ForeignKey(
-        Unit,
-        null=False,
-        on_delete=models.CASCADE,
-        verbose_name=_("Unit"),
-        related_name='products',
-    )
+    unit_category = StatusField(choices_name=UNIT_CATEGORIES, db_index=True)
     generic_product = models.ForeignKey(
         'Generic Product',
         null=False,
@@ -58,29 +60,15 @@ class Product(models.Model):
         verbose_name=_("Generic Product"),
         related_name='products',
     )
-    ALLERGEN_CATEGORIES = Choices(
-            ('none', _('none')),
-            ('celery', _('celery')),
-            ('glutten', _('cereals containing glutten')),
-            ('crustaceans', _('crustaceans')),
-            ('eggs', _('eggs')),
-            ('fish', _('fish')),
-            ('lupin', _('lupin')),
-            ('milk', _('milk')),
-            ('molluscs', _('molluscs')),
-            ('mustard', _('mustard')),
-            ('peanuts', _('peanuts')),
-            ('sesame', _('sesame')),
-            ('soybeans', _('soybeans')),
-            ('SO', _('sulphur dioxide and sulpites > 10 ppm')),
-            ('tree nuts', _('tree nuts')),
-    )
-    allergen_category = StatusField(choices_name = ALLERGEN_CATEGORIES, db_index=True)
+
 
     class Meta:
         verbose_name = _('Product')
         verbose_name_plural = _('Products')
         ordering = ['name']
+    
+    def __str__(self) -> str:
+        return f'{self.name}'
 
 
 class GenericProduct(models.Model):
@@ -92,24 +80,7 @@ class GenericProduct(models.Model):
         verbose_name=_("Product"),
         related_name='generics',
     )    
-    ALLERGEN_CATEGORIES = Choices(
-            ('none', _('none')),
-            ('celery', _('celery')),
-            ('glutten', _('cereals containing glutten')),
-            ('crustaceans', _('crustaceans')),
-            ('eggs', _('eggs')),
-            ('fish', _('fish')),
-            ('lupin', _('lupin')),
-            ('milk', _('milk')),
-            ('molluscs', _('molluscs')),
-            ('mustard', _('mustard')),
-            ('peanuts', _('peanuts')),
-            ('sesame', _('sesame')),
-            ('soybeans', _('soybeans')),
-            ('SO2', _('sulphur dioxide and sulpites > 10 ppm')),
-            ('tree nuts', _('tree nuts')),
-    )
-    allergen_category = StatusField(choices_name=ALLERGEN_CATEGORIES, db_index=True)
+ 
 
     class Meta:
         verbose_name = _('generic product')
@@ -117,7 +88,7 @@ class GenericProduct(models.Model):
         ordering = ['name']
     
     def __str__(self) -> str:
-        return f'{self.product} {self.allergen_category}'
+        return f'{self.product}'
 
 
 class ProductAllergen(models.Model):
@@ -136,23 +107,7 @@ class ProductAllergen(models.Model):
             verbose_name=_("Generic Product"),
             related_name='allergens',
         )
-    ALLERGEN_CATEGORIES = Choices(
-            ('none', _('none')),
-            ('celery', _('celery')),
-            ('glutten', _('cereals containing glutten')),
-            ('crustaceans', _('crustaceans')),
-            ('eggs', _('eggs')),
-            ('fish', _('fish')),
-            ('lupin', _('lupin')),
-            ('milk', _('milk')),
-            ('molluscs', _('molluscs')),
-            ('mustard', _('mustard')),
-            ('peanuts', _('peanuts')),
-            ('sesame', _('sesame')),
-            ('soybeans', _('soybeans')),
-            ('SO2', _('sulphur dioxide and sulpites > 10 ppm')),
-            ('tree nuts', _('tree nuts')),
-    )
+
     allergen_category = StatusField(choices_name=ALLERGEN_CATEGORIES, db_index=True)
 
     class Meta:
@@ -160,7 +115,8 @@ class ProductAllergen(models.Model):
         verbose_name_plural = _('Product Allergen')
 
     def __str__(self) -> str:
-        return f'{self.product} {self.generic_product} {self.allergen_category}'
+        return f'{self.generic_product} {self.product} {self.allergen_category}'
+
 
 class Service(models.Model):
     name = models.CharField(max_length=100)
