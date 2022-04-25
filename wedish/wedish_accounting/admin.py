@@ -2,10 +2,12 @@ from django.contrib import admin
 from django.utils.translation import gettext as _
 from .models import Order, OrderLine, Bill, VAT, Payment
 
+
 class OrderLineInline(admin.TabularInline):
     model = OrderLine
     fields = ('id', 'order', 'quantity',)
     readonly_fields = ('id',)
+
 
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('user', 'server', 'table_number', 'estimated_to_complete', 'price',)
@@ -13,15 +15,16 @@ class OrderAdmin(admin.ModelAdmin):
     search_fields = ('table_number',)
     inlines = (OrderLineInline,)   
 
+
 class OrderLineAdmin(admin.ModelAdmin):
-    list_display = ('id', 'order', 'quantity',) 
+    list_display = ('id',) 
     readonly_fields = ('id',) 
     fieldsets = (
         (None, {
             'fields': ('order', 'total_price', )
         }),
         (_('Availability'), {
-            'fields': ('menu_item', 'quantity', 'order', 'total_price')
+            'fields': ('menu_item', 'quantity', )
         }),
     )
 
@@ -30,6 +33,7 @@ class BillAdmin(admin.ModelAdmin):
     list_display = ('customer', 'order', 'total_price', 'discount', 'tips',)
     list_filter = ('customer',)
     search_fields = ('customer', 'order',)
+
 
 class VATAdmin(admin.ModelAdmin):
     list_display = ('unit_rate', 'start_date', 'end_date',)
