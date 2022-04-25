@@ -30,8 +30,9 @@ class Category(MP_Node):
     priority_index = models.IntegerField(default=0)
     name = models.CharField(_('name'), max_length=30,
         help_text=_('ex.: Salad, Roast, Pizza...'))
-    node_order_by = ['name']
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE, null=True, verbose_name=_('menu'))
+
+    node_order_by = ['-priority_index', 'name']
 
     def __str__(self):
         return 'Category: {}'.format(self.name)
