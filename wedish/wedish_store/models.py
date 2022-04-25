@@ -1,26 +1,30 @@
+from unicodedata import category
 from django.db import models
 from django.forms import CharField
 from django.utils.translation import gettext_lazy as _
+from model_utils import Choices
 
 class Unit(models.Model):
-    UNIT_CATEGORIES = (
-            (0, _("kilograms")),
-            (1, _("litre")),
+    UNIT_CATEGORIES = Choices(
+            (0, 'kilograms', _('kilograms')),
+            (1, 'litres', _('litres')),
     )
-    category = models.PositiveIntegerField(_('Unit'), default=0, choices=UNIT_CATEGORIES)
+    unit_category = models.PositiveSmallIntegerField(
+        choices=UNIT_CATEGORIES,
+        default=UNIT_CATEGORIES.kilograms)
 
     class Meta:
         verbose_name = _('unit')
         verbose_name_plural = _('units')
     
     def __str__(self) -> str:
-        return f'{self.category}'
+        return f'{self.unit_category}'
 
 
 
 class Brand(models.Model):
     name = models.CharField(_('name'), max_length=100, null=False, db_index=True)
-    picture = models.ImageField(_('picture'), default='wedish_store/img/default_brand.jpg')
+    picture = models.ImageField(_('picture'), default='wedish_store/img/default_brand.png')
     description = CharField(_('description'), max_length=10000, blank=True, default='')
     created_at = models.DateTimeField(_('created at'), auto_now_add=True)
 
@@ -31,27 +35,31 @@ class Brand(models.Model):
         return f'{self.name}'
 
 class Allergen(models.Model):
-    ALLERGEN_CATEGORIES = (
-            (0, _("none")),
-            (1, _("celery")),
-            (2, _("cereals containing glutten")),
-            (3, _("crustaceans")),
-            (4, _("eggs")),
-            (5, _("fish")),
-            (6, _("lupin")),
-            (7, _("milk")),
-            (8, _("molluscs")),
-            (9, _("mustard")),
-            (10, _("peanuts")),
-            (11, _("sesame")),
-            (12, _("soybeans")),
-            (13, _("sulphur dioxide and sulpites > 10 ppm")),
-            (14, _("tree nuts")),
+    ALLERGEN_CATEGORIES = Choices(
+            ('non', _('none')),
+            ('cel', _('celery')),
+            ('glut', _('cereals containing glutten')),
+            ('crust', _('crustaceans')),
+            ('egg', _('eggs')),
+            ('fish', _('fish')),
+            ('lup', _('lupin')),
+            ('mlk', _('milk')),
+            ('mlsc', _('molluscs')),
+            ('must', _('mustard')),
+            ('pnut', _('peanuts')),
+            ('ssme', _('sesame')),
+            ('soy', _('soybeans')),
+            ('SO', _('sulphur dioxide and sulpites > 10 ppm')),
+            ('tnut', _('tree nuts')),
     )
-    category = models.PositiveIntegerField(_('Allergen'), default=0, choices=ALLERGEN_CATEGORIES)
+    allergen_category = models.CharField(
+        max_length=32,
+        choices = ALLERGEN_CATEGORIES,
+        default = ALLERGEN_CATEGORIES.non
+    )
 
     def __str__(self) -> str:
-        return f'{self.category}'
+        return f'{self.allergen_category}'
 
 
 
@@ -111,9 +119,6 @@ class GenericProduct(models.Model):
     
     def __str__(self) -> str:
         return f'{self.product} {self.allergen}'
-    #allergen foreign key? example: nuts , eggs, milk, wheat, soy, seafood
-    #type foreign key? example: vegan, vegetarian, meat, dairy, glutenfree...
-
 
 class Service(models.Model):
     name = models.CharField(max_length=100)
