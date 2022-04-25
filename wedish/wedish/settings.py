@@ -40,14 +40,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django-model-utils'
     
+    'wedish_menu',
     'wedish_site',
+    'wedish_pub',
     'wedish_recipy',
     'wedish_store',
     'wedish_accounting',
     
     'rosetta',
     'tinymce',
-
+    'treebeard',
+    'cities_light',
 ]
 
 MIDDLEWARE = [

@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 from model_utils import Choices
 from model_utils.fields import StatusField
 from tinymce.models import HTMLField
+from treebeard.mp_tree import MP_Node
 
 
 UNIT_CATEGORIES = Choices(
@@ -61,7 +62,6 @@ class Product(models.Model):
         related_name='products',
     )
 
-
     class Meta:
         verbose_name = _('Product')
         verbose_name_plural = _('Products')
@@ -73,7 +73,6 @@ class Product(models.Model):
 
 class GenericProduct(models.Model):
     name = models.CharField(_('Name'), max_length=100, null=False, db_index=True)
-
 
     class Meta:
         verbose_name = _('generic product')
@@ -113,3 +112,11 @@ class ProductAllergen(models.Model):
 
 class Service(models.Model):
     name = models.CharField(max_length=100)
+
+
+class Category(MP_Node):
+    name = models.CharField(max_length=100)
+    node_order_by = ['name']
+
+    def __str__(self):
+        return 'Category: {}'.format(self.name)
