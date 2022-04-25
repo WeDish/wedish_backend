@@ -17,13 +17,13 @@ class Order(models.Model):
 
 class Bill(models.Model):
     # payment = fk?
-    customer = models.CharField(_('Customer'))#??
+    customer = models.CharField(_('Customer'), max_length=100)#??
     total_price = models.IntegerField(_('Total price'), db_index=True)
     # order = fk?
 
 class VAT(models.Model):
     #country
-    rate = models.DecimalField(_('Rate'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
+    unit_rate = models.DecimalField(_('Rate'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
     start_date = models.DateTimeField(_('Start date'), auto_now_add=True)
     
     def __str__(self):
