@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as _
 from treebeard.mp_tree import MP_Node
+from wedish_store import Good
 
 
 class Menu(models.Model):
@@ -43,4 +44,4 @@ class MenuItem(models.Model):
     name = models.CharField(_('name'), max_length=63)
     price = models.DecimalField(_('price'), max_digits=12, decimal_places=2, blank=True, null=True)
     category_group = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, verbose_name=_('category group'))
-    # item = models.ForeignKey(Recipy, on_delete=models.CASCADE, null=True, verbose_name=_('item'))
+    item = models.ForeignKey(Good, on_delete=models.CASCADE, null=True, verbose_name=_('item'))
