@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as _
 from treebeard.mp_tree import MP_Node
-from wedish_store import Good
+from wedish_recipy.models import Good
 
 
 class Menu(models.Model):
