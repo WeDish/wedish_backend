@@ -8,7 +8,7 @@ class Menu(models.Model):
     name = models.CharField(_('name'), max_length=30,
         help_text=_('ex.: Day menu, Festive menu, Ordinary menu'))
     valid_from = models.DateField(_('valid from'), null=True, blank=True, db_index=True, default=now)
-    valid_untill = models.DateField(_('valid untill'), null=True, blank=True, db_index=True)
+    valid_until = models.DateField(_('valid until'), null=True, blank=True, db_index=True)
     
     PUBLICITY_STATUS = (
         (0, _('Public')),
@@ -28,7 +28,7 @@ class Menu(models.Model):
 
 class Category(MP_Node):
     priority_index = models.IntegerField(default=0)
-    name = models.CharField(_('name'), max_length=30,
+    name = models.CharField(_('name'), max_length=63,
         help_text=_('ex.: Salad, Roast, Pizza...'))
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE, null=True, verbose_name=_('menu'))
 
@@ -40,7 +40,7 @@ class Category(MP_Node):
 
 class MenuItem(models.Model):
     priority_index = models.IntegerField(default=0)
-    name = models.CharField(_('name'), max_length=30)
-    price = models.DecimalField(_('price'), max_digits=10, decimal_places=2, blank=True, null=True)
+    name = models.CharField(_('name'), max_length=63)
+    price = models.DecimalField(_('price'), max_digits=12, decimal_places=2, blank=True, null=True)
     category_group = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, verbose_name=_('category group'))
     # item = models.ForeignKey(Recipy, on_delete=models.CASCADE, null=True, verbose_name=_('item'))
