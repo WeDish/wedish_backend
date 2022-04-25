@@ -30,5 +30,6 @@ admin.site.register(GenericProduct, GenericProductAdmin)
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(Unit, UnitAdmin)
 admin.site.register(Brand, BrandAdmin)
+admin.site.register(Allergen, AllergenAdmin)
 
 
