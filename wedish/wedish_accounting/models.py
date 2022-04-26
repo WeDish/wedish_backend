@@ -12,8 +12,7 @@ class Order(models.Model):
     estimated_to_complete = models.DateTimeField(_('Estimated to complete'), null=True, blank=True)
     price = models.DecimalField(_('Price'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
     completed_at = models.DateTimeField(_('completed_at'), null=True, blank=True, db_index=True)
-    table_number = models.CharField(_('Table number'), max_length=100, db_index=True)
-    place = models.ForeignKey(
+    table = models.ForeignKey(
         Space,
         on_delete=models.CASCADE,
         null=True,
@@ -25,7 +24,7 @@ class Order(models.Model):
     server = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, related_name='order_for_staff') #qurysetus admine darytis is staff true
 
     class Meta:
-        ordering = ['table_number', 'server', 'estimated_to_complete']
+        ordering = ['table', 'server', 'estimated_to_complete']
         verbose_name = _('Order')
         verbose_name_plural = ('Orders')
    
@@ -51,7 +50,12 @@ class OrderLine(models.Model):
         related_name='places',
     )
     total_price = models.DecimalField(_('Total price'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
-    # (on_save menu.menu_item.price * quantity)
+   
+    @property
+    def get_total(self):
+       total_price = self.menu_item.price * self.quantity
+       return total_price
+
 
 
 class Bill(models.Model):
@@ -72,7 +76,7 @@ class Bill(models.Model):
     
 
 class VAT(models.Model):
-    unit_rate = models.DecimalField(_('Rate'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
+    rate = models.DecimalField(_('Rate'), max_digits=10, decimal_places=3, blank=True, null=True, default=0)
     start_date = models.DateTimeField(_('Start date'), auto_now_add=True)
     end_date = models.DateTimeField(_('End date'), blank=True, null=True )
     country = models.ForeignKey(
