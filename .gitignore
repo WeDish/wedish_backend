@@ -9,7 +9,7 @@ __pycache__/
 # Django Stuff
 static/
 media/
-migrations/
+
 
 # Distribution / packaging
 .Python

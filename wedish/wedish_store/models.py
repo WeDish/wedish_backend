@@ -7,9 +7,9 @@ from treebeard.mp_tree import MP_Node
 
 
 UNIT_CATEGORIES = Choices(
-            (1, 'kg', _('kilograms')),
-            (2, 'L', _('liters')),
-            (3, 'pcs', _('units')),
+            ('kg', _('kilograms')),
+            ('L', _('liters')),
+            ('pcs', _('units')),
     )
 
 ALLERGEN_CATEGORIES = Choices(
@@ -53,9 +53,9 @@ class Product(models.Model):
         verbose_name=_("Brand"),
         related_name='products',
     )
-    unit_category = StatusField(choices_name=UNIT_CATEGORIES, db_index=True)
+    unit_category = models.CharField(choices=UNIT_CATEGORIES, db_index=True, max_length=7)
     generic_product = models.ForeignKey(
-        'Generic Product',
+        'GenericProduct',
         null=False,
         on_delete=models.CASCADE,
         verbose_name=_("Generic Product"),
@@ -100,7 +100,7 @@ class ProductAllergen(models.Model):
             related_name='allergens',
         )
 
-    allergen_category = StatusField(choices_name=ALLERGEN_CATEGORIES, db_index=True)
+    allergen_category = models.CharField(choices=ALLERGEN_CATEGORIES, db_index=True, max_length=63)
 
     class Meta:
         verbose_name = _('Product Allergen')
