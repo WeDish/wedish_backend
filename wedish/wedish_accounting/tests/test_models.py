@@ -19,3 +19,5 @@ class PaymentModelTest(TestCase):
         payment=Payment.objects.get(id=1)
         expected_currency= f'{payment.currency}'
         self.assertEqual(expected_currency, 'EUR')
+
+
