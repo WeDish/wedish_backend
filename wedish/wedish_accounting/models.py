@@ -4,6 +4,8 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from wedish_pub.models import Space
 from cities_light.models import Country
+from wedish_menu.models import MenuItem
+
 
 class Order(models.Model):
 
@@ -12,15 +14,15 @@ class Order(models.Model):
     completed_at = models.DateTimeField(_('completed_at'), null=True, blank=True, db_index=True)
     table_number = models.CharField(_('Table number'), max_length=100, db_index=True)
     place = models.ForeignKey(
-        'Space',
+        Space,
         on_delete=models.CASCADE,
         null=True,
         verbose_name=_('Space'),
         related_name='Spaces',
     )
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, related_name='order_for_user')
     # total_price = total_price (suma visu susijusiu OrderLine) 
-    server = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True) #qurysetus admine darytis is staff true
+    server = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, related_name='order_for_staff') #qurysetus admine darytis is staff true
 
     class Meta:
         ordering = ['table_number', 'server', 'estimated_to_complete']
@@ -30,14 +32,15 @@ class Order(models.Model):
     def __str__(self) -> str:
         return self.price
 
+
 class OrderLine(models.Model):
 
     menu_item = models.ForeignKey(
-        'MenuItem',
+        MenuItem,
         on_delete=models.CASCADE,
         null=True,
         verbose_name=_('Menu item'),
-        related_name='menu items',
+        related_name='menu_items',
     )
     quantity = models.CharField(_('Quantity'), max_length=100)
     order = models.ForeignKey(
@@ -73,7 +76,7 @@ class VAT(models.Model):
     start_date = models.DateTimeField(_('Start date'), auto_now_add=True)
     end_date = models.DateTimeField(_('End date'), blank=True, null=True )
     country = models.ForeignKey(
-        'Country',
+        Country,
         on_delete=models.CASCADE,
         null=True,
     )
@@ -81,6 +84,7 @@ class VAT(models.Model):
     
     def __str__(self):
         return f'{self.rate} {self.start_date}'
+
 
 class Payment(models.Model):
 

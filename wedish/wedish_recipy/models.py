@@ -50,12 +50,12 @@ class GoodIngradient(models.Model):
     )
     quantity = models.DecimalField(
         _('quantity'), null=False, max_digits=10, decimal_places=2, default=0)
-    unit = models.ForeignKey(
-        store.Unit,
+    unit = models.CharField(
         null=True,
-        on_delete=models.CASCADE,
         verbose_name=_("unit"),
-        related_name='ingredients',
+        max_length=7,
+        choices=store.UNIT_CATEGORIES,
+        default=store.UNIT_CATEGORIES.pcs,
     )
     
     class Meta:
