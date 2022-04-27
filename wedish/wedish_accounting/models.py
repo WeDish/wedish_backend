@@ -2,7 +2,7 @@ from django.conf import settings
 from datetime import date
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from wedish_pub.models import Space
+from wedish_pub.models import Table
 from cities_light.models import Country
 from wedish_menu.models import MenuItem
 
@@ -13,11 +13,11 @@ class Order(models.Model):
     price = models.DecimalField(_('Price'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
     completed_at = models.DateTimeField(_('completed_at'), null=True, blank=True, db_index=True)
     table = models.ForeignKey(
-        Space,
+        Table,
         on_delete=models.CASCADE,
         null=True,
-        verbose_name=_('Space'),
-        related_name='Spaces',
+        verbose_name=_('Table'),
+        related_name='Tables',
     )
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, related_name='order_for_user')
     # total_price = total_price (suma visu susijusiu OrderLine) 
@@ -47,7 +47,7 @@ class OrderLine(models.Model):
         on_delete=models.CASCADE,
         null=True,
         verbose_name=_('Order'),
-        related_name='places',
+        related_name='orders',
     )
     total_price = models.DecimalField(_('Total price'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
    

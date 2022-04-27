@@ -42,4 +42,5 @@ class VATAdmin(admin.ModelAdmin):
 admin.site.register(Order, OrderAdmin)
 admin.site.register(OrderLine, OrderLineAdmin)
 admin.site.register(Bill, BillAdmin)
-admin.site.register(VAT, VATAdmin)      
+admin.site.register(VAT, VATAdmin)    
+  
