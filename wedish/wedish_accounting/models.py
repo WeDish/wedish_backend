@@ -4,7 +4,25 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from wedish_pub.models import Table
 from cities_light.models import Country
+from cities_light.models import AbstractCountry, AbstractCity, AbstractRegion, AbstractSubRegion
+
 from wedish_menu.models import MenuItem
+
+
+class Country(AbstractCountry):
+    pass
+
+
+class Region(AbstractRegion):
+    pass
+
+
+class SubRegion(AbstractSubRegion):
+    pass
+
+
+class City(AbstractCity):
+    pass
 
 
 class Order(models.Model):
@@ -67,7 +85,6 @@ class Bill(models.Model):
         verbose_name=_('order'),
         related_name='orders'
     )
-
     total_price = models.DecimalField(_('Total price'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
     discount =  models.DecimalField(_('Discount'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
     tips =  models.DecimalField(_('Tips'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
