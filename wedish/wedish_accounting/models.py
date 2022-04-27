@@ -16,8 +16,8 @@ class Order(models.Model):
         Table,
         on_delete=models.CASCADE,
         null=True,
-        verbose_name=_('Table'),
-        related_name='Tables',
+        verbose_name=_('table'),
+        related_name='tables',
     )
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, related_name='order_for_user')
     # total_price = total_price (suma visu susijusiu OrderLine) 
@@ -25,8 +25,8 @@ class Order(models.Model):
 
     class Meta:
         ordering = ['table', 'server', 'estimated_to_complete']
-        verbose_name = _('Order')
-        verbose_name_plural = ('Orders')
+        verbose_name = _('order')
+        verbose_name_plural = ('orders')
    
     def __str__(self) -> str:
         return self.price
@@ -38,7 +38,7 @@ class OrderLine(models.Model):
         MenuItem,
         on_delete=models.CASCADE,
         null=True,
-        verbose_name=_('Menu item'),
+        verbose_name=_('menu item'),
         related_name='menu_items',
     )
     quantity = models.CharField(_('Quantity'), max_length=100)
@@ -46,13 +46,13 @@ class OrderLine(models.Model):
         'Order',
         on_delete=models.CASCADE,
         null=True,
-        verbose_name=_('Order'),
-        related_name='orders',
+        verbose_name=_('order'),
+        related_name='places',
     )
     total_price = models.DecimalField(_('Total price'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
    
     @property
-    def get_total(self):
+    def get_total_price(self):
        total_price = self.menu_item.price * self.quantity
        return total_price
 
@@ -65,7 +65,7 @@ class Bill(models.Model):
         'Order',
         on_delete=models.PROTECT,
         null=True,
-        verbose_name=_('Order'),
+        verbose_name=_('order'),
         related_name='orders'
     )
 
