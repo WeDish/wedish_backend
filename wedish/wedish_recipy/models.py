@@ -63,4 +63,4 @@ class GoodIngradient(models.Model):
         verbose_name_plural = _('good ingredients')
 
     def __str__(self) -> str:
-        return f'{self.good}: {self.ingradient} {self.quantity} EUR'
+        return f'{self.good}: {self.ingradient} {self.quantity}{self.unit}'
