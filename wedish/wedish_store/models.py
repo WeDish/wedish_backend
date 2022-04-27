@@ -111,7 +111,14 @@ class ProductAllergen(models.Model):
 
 
 class Service(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(_('Name'), max_length=100)
+
+    class Meta:
+        verbose_name = _('Service')
+        verbose_name_plural = _('Services')
+
+    def __str__(self):
+        return f'{self.name}'
 
 
 class Category(MP_Node):
