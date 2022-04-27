@@ -21,13 +21,13 @@ class OrderLineAdmin(admin.ModelAdmin):
     readonly_fields = ('id',) 
 
     fieldsets = (
-      ('Standart info', {
-          'fields': ('id',)
-      }),
-      ('Order info', {
-          'fields': ('menu_item', 'quantity', 'total_price',)
-      }),
-   )
+        ('Standart info', {
+            'fields': ('id',)
+        }),
+        ('Order info', {
+            'fields': ('menu_item', 'quantity', 'total_price',)
+        }),
+    )
 
 class BillAdmin(admin.ModelAdmin):
     list_display = ('customer', 'order', 'total_price', 'discount', 'tips',)

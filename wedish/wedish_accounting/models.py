@@ -53,9 +53,8 @@ class OrderLine(models.Model):
    
     @property
     def get_total_price(self):
-       total_price = self.menu_item.price * self.quantity
-       return total_price
-
+        total_price = self.menu_item.price * self.quantity
+        return total_price
 
 
 class Bill(models.Model):
