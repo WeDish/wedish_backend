@@ -33,7 +33,7 @@ class BrandAdmin(admin.ModelAdmin):
             + urlencode({"brand_id": obj.id})
         )
         return format_html('<a href="{}" style="display:block">{}</a>', url, product_count)
-    view_products_link.short_description = "Products"
+    view_products_link.short_description = _('products')
     
 
 admin.site.register(Product, ProductAdmin)
