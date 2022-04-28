@@ -45,7 +45,7 @@ class Brand(models.Model):
 
 
 class Product(models.Model):
-    name = models.CharField(_('Name'), max_length=100, null=False, db_index=True)
+    name = models.CharField(_('name'), max_length=100, null=False, db_index=True)
     brand = models.ForeignKey(
         Brand,
         null=False,
@@ -72,7 +72,7 @@ class Product(models.Model):
 
 
 class GenericProduct(models.Model):
-    name = models.CharField(_('Name'), max_length=100, null=False, db_index=True)
+    name = models.CharField(_('name'), max_length=100, null=False, db_index=True)
 
     class Meta:
         verbose_name = _('generic product')
@@ -84,7 +84,7 @@ class GenericProduct(models.Model):
 
 
 class ProductAllergen(models.Model):
-    name = models.CharField(_('Name'), max_length=100, null=False, db_index=True)
+    name = models.CharField(_('name'), max_length=100, null=False, db_index=True)
     product = models.ForeignKey(
             Product,
             null=True,
@@ -111,7 +111,7 @@ class ProductAllergen(models.Model):
 
 
 class Service(models.Model):
-    name = models.CharField(_('Name'), max_length=100)
+    name = models.CharField(_('name'), max_length=100)
 
     class Meta:
         verbose_name = _('service')
