@@ -6,8 +6,7 @@ from wedish_store import models as store
 
 
 class Good(models.Model):
-    name = models.CharField(_('name'), max_length=50,
-                            null=False, db_index=True)
+    name = models.CharField(_('name'), max_length=50, null=False, db_index=True)
     PRODUCT_CATEGORIES = (
             (0, _("dish")),
             (1, _("drink")),
@@ -36,21 +35,21 @@ class GoodIngradient(models.Model):
         Good,
         null=False,
         on_delete=models.CASCADE,
-        verbose_name=_("good"),
+        verbose_name=_('good'),
         related_name='ingredients',
     )
     ingradient = models.ForeignKey(
         store.Product,
         null=True,
         on_delete=models.CASCADE,
-        verbose_name=_("ingredient"),
+        verbose_name=_('ingredient'),
         related_name='ingredients',
     )
     quantity = models.DecimalField(
-        _('quantity'), null=False, max_digits=10, decimal_places=2, default=0)
+        _('quantity'), null=False, max_digits=10, decimal_places=3, default=0)
     unit = models.CharField(
         null=True,
-        verbose_name=_("unit"),
+        verbose_name=_('unit'),
         max_length=7,
         choices=store.UNIT_CATEGORIES,
         default=store.UNIT_CATEGORIES.pcs,
@@ -61,4 +60,4 @@ class GoodIngradient(models.Model):
         verbose_name_plural = _('good ingredients')
 
     def __str__(self) -> str:
-        return f'{self.good}: {self.ingradient} {self.quantity} EUR'
+        return f'{self.good}: {self.ingradient} {self.quantity}'
