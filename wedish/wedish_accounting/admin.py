@@ -10,7 +10,7 @@ class OrderLineInline(admin.TabularInline):
 
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('user', 'server', 'table', 'estimated_to_complete', 'price',)
+    list_display = ('user', 'server', 'table', 'estimated_to_complete',)
     list_filter = ('estimated_to_complete', 'table',)
     # search_fields = ('table',)
     inlines = (OrderLineInline,)   
