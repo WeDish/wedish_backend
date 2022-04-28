@@ -34,4 +34,3 @@ class MyTestCase(TestCase):
     def delete(self):
         # delete
         print('delete test')
-        
