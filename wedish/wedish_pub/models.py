@@ -40,4 +40,3 @@ class Table(models.Model):
 
     def __str__(self) -> str:
         return f'{self.space}:{self.seats_number}'
-

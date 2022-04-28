@@ -6,19 +6,20 @@ from .models import Order, OrderLine, Bill, VAT, Payment
 class OrderLineInline(admin.TabularInline):
     model = OrderLine
     fields = ('id', 'menu_item', 'quantity', 'total_price')
-    readonly_fields = ('id',)
+    readonly_fields = ('id','total_price',)
 
 
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('user', 'server', 'table', 'estimated_to_complete',)
     list_filter = ('estimated_to_complete', 'table',)
+    readonly_fields = ('total_price',)
     # search_fields = ('table',)
     inlines = (OrderLineInline,)   
 
 
 class OrderLineAdmin(admin.ModelAdmin):
     list_display = ('id', 'menu_item', 'quantity', 'total_price') 
-    readonly_fields = ('id',) 
+    readonly_fields = ('id','total_price',) 
 
     fieldsets = (
         ('Standart info', {
