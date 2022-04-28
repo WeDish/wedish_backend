@@ -6,7 +6,7 @@ from .models import Order, OrderLine, Bill, VAT, Payment
 class OrderLineInline(admin.TabularInline):
     model = OrderLine
     fields = ('id', 'menu_item', 'quantity', 'total_price')
-    readonly_fields = ('id','total_price',)
+    readonly_fields = ('id', 'total_price',)
 
 
 class OrderAdmin(admin.ModelAdmin):
