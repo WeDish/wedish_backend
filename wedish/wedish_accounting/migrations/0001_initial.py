@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     dependencies = [
         ('wedish_menu', '0001_initial'),
         ('wedish_pub', '0001_initial'),
-        ('cities_light', '0011_alter_city_country_alter_city_id_alter_city_region_and_more'),
+        # ('cities_light', '0011_alter_city_country_alter_city_id_alter_city_region_and_more'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 

@@ -1,0 +1,385 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-27 21:55+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+
+#: .\wedish_accounting\admin.py:26
+msgid "Availability"
+msgstr "Pasiekiamumas"
+
+#: .\wedish_accounting\models.py:12
+msgid "Estimated to complete"
+msgstr "Planuojama užbaigti"
+
+#: .\wedish_accounting\models.py:13
+msgid "Price"
+msgstr "Kaina"
+
+#: .\wedish_accounting\models.py:14
+msgid "completed_at"
+msgstr "užbaigta"
+
+#: .\wedish_accounting\models.py:15
+msgid "Table number"
+msgstr "Stalo numeris"
+
+#: .\wedish_accounting\models.py:20
+msgid "Space"
+msgstr "Erdvė"
+
+#: .\wedish_accounting\models.py:29 .\wedish_accounting\models.py:50
+#: .\wedish_accounting\models.py:64
+msgid "Order"
+msgstr "Užsakymas"
+
+#: .\wedish_accounting\models.py:42
+msgid "Menu item"
+msgstr ""
+
+#: .\wedish_accounting\models.py:45
+msgid "Quantity"
+msgstr "Kiekis"
+
+#: .\wedish_accounting\models.py:53 .\wedish_accounting\models.py:68
+msgid "Total price"
+msgstr "Viso mokėti"
+
+#: .\wedish_accounting\models.py:69
+msgid "Discount"
+msgstr "Nuolaida"
+
+#: .\wedish_accounting\models.py:70
+msgid "Tips"
+msgstr "Arbatpinigiai"
+
+#: .\wedish_accounting\models.py:75
+msgid "Rate"
+msgstr ""
+
+#: .\wedish_accounting\models.py:76
+msgid "Start date"
+msgstr "Atidarytas"
+
+#: .\wedish_accounting\models.py:77
+msgid "End date"
+msgstr "Uždarytas"
+
+#: .\wedish_accounting\models.py:91
+msgid "Payment method"
+msgstr "Mokėjimas"
+
+#: .\wedish_accounting\models.py:92
+msgid "Currency"
+msgstr "Valiuta"
+
+#: .\wedish_menu\models.py:9 .\wedish_menu\models.py:32
+#: .\wedish_menu\models.py:48 .\wedish_pub\models.py:19
+#: .\wedish_recipy\models.py:11 .\wedish_store\models.py:35
+msgid "name"
+msgstr "pavadinimas"
+
+#: .\wedish_menu\models.py:10
+msgid "ex.: Day menu, Festive menu, Ordinary menu"
+msgstr "pvz.: Dienos meniu, Šventinis meniu, Įprastas meniu"
+
+#: .\wedish_menu\models.py:11
+msgid "valid from"
+msgstr "pagaminimo data"
+
+#: .\wedish_menu\models.py:12
+msgid "valid until"
+msgstr "galiojimo data"
+
+#: .\wedish_menu\models.py:15
+msgid "Public"
+msgstr "Viešas"
+
+#: .\wedish_menu\models.py:16
+msgid "Private"
+msgstr "Privatus"
+
+#: .\wedish_menu\models.py:19
+msgid "publicity"
+msgstr "reklama"
+
+#: .\wedish_menu\models.py:23 .\wedish_menu\models.py:34
+msgid "menu"
+msgstr "meniu"
+
+#: .\wedish_menu\models.py:24
+msgid "menus"
+msgstr ""
+
+#: .\wedish_menu\models.py:33
+msgid "ex.: Salad, Roast, Pizza..."
+msgstr "pvz.: Salotos, Kepsniai, Picos.. "
+
+#: .\wedish_menu\models.py:39
+msgid "category"
+msgstr "kategorija"
+
+#: .\wedish_menu\models.py:40
+msgid "categories"
+msgstr "kategorijos"
+
+#: .\wedish_menu\models.py:49
+msgid "price"
+msgstr "kaina"
+
+#: .\wedish_menu\models.py:50
+msgid "category group"
+msgstr "kategorijų grupė"
+
+#: .\wedish_menu\models.py:51
+msgid "item"
+msgstr "punktas"
+
+#: .\wedish_menu\models.py:54
+msgid "menu item"
+msgstr "meniu punktas "
+
+#: .\wedish_menu\models.py:55
+msgid "menu items"
+msgstr "meniu punktai"
+
+#: .\wedish_pub\models.py:7 .\wedish_pub\models.py:11
+msgid "space category"
+msgstr "erdvės kategorija"
+
+#: .\wedish_pub\models.py:8 .\wedish_pub\models.py:22
+#: .\wedish_recipy\models.py:25 .\wedish_store\models.py:37
+msgid "description"
+msgstr "aprašymas"
+
+#: .\wedish_pub\models.py:8
+msgid "Short description of this space category"
+msgstr "Trumpas erdvės kategorijos aprašymas"
+
+#: .\wedish_pub\models.py:12
+msgid "space categories"
+msgstr "erdvės kategorijos"
+
+#: .\wedish_pub\models.py:21
+msgid "accepts for production"
+msgstr "priima gamybai"
+
+#: .\wedish_pub\models.py:22
+msgid "Short description of this space"
+msgstr "Trumpas erdvės aprašymas"
+
+#: .\wedish_pub\models.py:25
+msgid "space"
+msgstr "erdvė"
+
+#: .\wedish_pub\models.py:26
+msgid "spaces"
+msgstr "erdvės"
+
+#: .\wedish_pub\models.py:34
+msgid "public identifier"
+msgstr "viešas "
+
+#: .\wedish_pub\models.py:39
+msgid "table"
+msgstr "stalas"
+
+#: .\wedish_pub\models.py:40
+msgid "tables"
+msgstr "stalai"
+
+#: .\wedish_recipy\admin.py:21
+msgid "wedish recipy admin"
+msgstr "wedish recepto adminas"
+
+#: .\wedish_recipy\admin.py:22
+msgid "wedish recipy administration"
+msgstr "wedish recepto administratorius"
+
+#: .\wedish_recipy\models.py:14
+msgid "dish"
+msgstr "patiekalas"
+
+#: .\wedish_recipy\models.py:15
+msgid "drink"
+msgstr "gėrimas"
+
+#: .\wedish_recipy\models.py:16
+msgid "service"
+msgstr "aptarnavimas"
+
+#: .\wedish_recipy\models.py:19
+msgid "Status"
+msgstr "Statusas"
+
+#: .\wedish_recipy\models.py:21
+msgid "recommended retail price"
+msgstr ""
+
+#: .\wedish_recipy\models.py:23 .\wedish_store\models.py:36
+msgid "picture"
+msgstr ""
+
+#: .\wedish_recipy\models.py:26 .\wedish_store\models.py:38
+msgid "created at"
+msgstr ""
+
+#: .\wedish_recipy\models.py:30 .\wedish_recipy\models.py:41
+msgid "good"
+msgstr ""
+
+#: .\wedish_recipy\models.py:31
+msgid "goods"
+msgstr ""
+
+#: .\wedish_recipy\models.py:48
+msgid "ingredient"
+msgstr ""
+
+#: .\wedish_recipy\models.py:52
+msgid "quantity"
+msgstr ""
+
+#: .\wedish_recipy\models.py:55
+msgid "unit"
+msgstr ""
+
+#: .\wedish_recipy\models.py:62
+msgid "good ingredient"
+msgstr ""
+
+#: .\wedish_recipy\models.py:63
+msgid "good ingredients"
+msgstr ""
+
+#: .\wedish_site\templates\wedish_site\base.html:12
+msgid "Car Service"
+msgstr ""
+
+#: .\wedish_site\templates\wedish_site\base.html:22
+msgid "Home"
+msgstr ""
+
+#: .\wedish_site\templates\wedish_site\base.html:24
+msgid "Admin"
+msgstr ""
+
+#: .\wedish_store\models.py:10
+msgid "kilograms"
+msgstr ""
+
+#: .\wedish_store\models.py:11
+msgid "liters"
+msgstr ""
+
+#: .\wedish_store\models.py:12
+msgid "units"
+msgstr ""
+
+#: .\wedish_store\models.py:16
+msgid "none"
+msgstr ""
+
+#: .\wedish_store\models.py:17
+msgid "celery"
+msgstr ""
+
+#: .\wedish_store\models.py:18
+msgid "cereals containing glutten"
+msgstr ""
+
+#: .\wedish_store\models.py:19
+msgid "crustaceans"
+msgstr ""
+
+#: .\wedish_store\models.py:20
+msgid "eggs"
+msgstr ""
+
+#: .\wedish_store\models.py:21
+msgid "fish"
+msgstr ""
+
+#: .\wedish_store\models.py:22
+msgid "lupin"
+msgstr ""
+
+#: .\wedish_store\models.py:23
+msgid "milk"
+msgstr ""
+
+#: .\wedish_store\models.py:24
+msgid "molluscs"
+msgstr ""
+
+#: .\wedish_store\models.py:25
+msgid "mustard"
+msgstr ""
+
+#: .\wedish_store\models.py:26
+msgid "peanuts"
+msgstr ""
+
+#: .\wedish_store\models.py:27
+msgid "sesame"
+msgstr ""
+
+#: .\wedish_store\models.py:28
+msgid "soybeans"
+msgstr ""
+
+#: .\wedish_store\models.py:29
+msgid "sulphur dioxide and sulpites > 10 ppm"
+msgstr ""
+
+#: .\wedish_store\models.py:30
+msgid "tree nuts"
+msgstr ""
+
+#: .\wedish_store\models.py:48 .\wedish_store\models.py:75
+#: .\wedish_store\models.py:87
+msgid "Name"
+msgstr ""
+
+#: .\wedish_store\models.py:53
+msgid "Brand"
+msgstr ""
+
+#: .\wedish_store\models.py:61 .\wedish_store\models.py:99
+msgid "Generic Product"
+msgstr ""
+
+#: .\wedish_store\models.py:66 .\wedish_store\models.py:92
+msgid "Product"
+msgstr ""
+
+#: .\wedish_store\models.py:67
+msgid "Products"
+msgstr ""
+
+#: .\wedish_store\models.py:78
+msgid "generic product"
+msgstr ""
+
+#: .\wedish_store\models.py:79
+msgid "generic products"
+msgstr ""
+
+#: .\wedish_store\models.py:106 .\wedish_store\models.py:107
+msgid "Product Allergen"
+msgstr ""
