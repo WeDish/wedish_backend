@@ -5,8 +5,6 @@ from tinymce.models import HTMLField
 from wedish_store import models as store
 
 
-# Create your models here.
-
 class Good(models.Model):
     name = models.CharField(_('name'), max_length=50,
                             null=False, db_index=True)
@@ -16,7 +14,7 @@ class Good(models.Model):
             (2, _("service")),
     )
     category = models.PositiveIntegerField(
-        _('Status'), default=0, choices=PRODUCT_CATEGORIES)
+        _('status'), default=0, choices=PRODUCT_CATEGORIES)
     recommended_retail_price = models.DecimalField(
         _('recommended retail price'), null=False, max_digits=10, decimal_places=2)
     picture = models.ImageField(
@@ -25,7 +23,6 @@ class Good(models.Model):
         _('description'), max_length=10000, blank=True, default='')
     created_at = models.DateTimeField(_('created at'), auto_now_add=True)
 
-
     class Meta:
         verbose_name = _('good')
         verbose_name_plural = _('goods')
@@ -33,6 +30,7 @@ class Good(models.Model):
     def __str__(self) -> str:
         return f'{self.name} ({self.category}): {self.recommended_retail_price} EUR'
     
+
 class GoodIngradient(models.Model):
     good = models.ForeignKey(
         Good,
