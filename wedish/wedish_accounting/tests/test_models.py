@@ -41,16 +41,6 @@ class VATModelTest(TestCase):
     
 
 
-
-
-
-
-
-
-
-
-
-
 # class OrderModelTest(TestCase):
 
 
