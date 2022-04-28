@@ -35,6 +35,8 @@ class Order(models.Model):
     )
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, related_name='order_for_user')
     server = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, related_name='order_for_staff') #qurysetus admine darytis is staff true
+    total_price = models.DecimalField(
+        _('total price'), null=True, max_digits=10, decimal_places=2, blank=True)
 
     class Meta:
         ordering = ['table', 'server', 'estimated_to_complete']
@@ -42,8 +44,19 @@ class Order(models.Model):
         verbose_name_plural = ('orders')
    
     def __str__(self) -> str:
-        return self.price
+        return str(self.total_price)
+    
+    @property
+    def get_total_price(self):
+        self.total_price = 0
+        for line in self.places.all():
+            self.total_price += line.total_price
+        return self.total_price
 
+    def save(self, *args, **kwargs):
+        self.get_total_price
+        super().save(*args, **kwargs)
+        
 
 class OrderLine(models.Model):
     menu_item = models.ForeignKey(
@@ -55,7 +68,7 @@ class OrderLine(models.Model):
     )
     quantity = models.DecimalField(_('quantity'), max_digits=10, decimal_places=3)
     order = models.ForeignKey(
-        'Order',
+        Order,
         on_delete=models.CASCADE,
         null=True,
         verbose_name=_('order'),
@@ -67,6 +80,12 @@ class OrderLine(models.Model):
     def get_total_price(self):
         self.total_price = self.menu_item.price * self.quantity
         return self.total_price
+
+    def save(self, *args, **kwargs):
+        self.get_total_price
+        # self.order.get_total_price
+        super().save(*args, **kwargs)
+        self.order.save()
 
 
 class Bill(models.Model):
