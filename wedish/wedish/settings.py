@@ -38,19 +38,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'django-model-utils',
     
     'wedish_menu',
     'wedish_site',
     'wedish_pub',
     'wedish_recipy',
     'wedish_store',
+
+    'cities_light',
     'wedish_accounting',
     
     'rosetta',
     'tinymce',
     'treebeard',
-    'cities_light',
+    
 ]
 
 MIDDLEWARE = [
@@ -173,3 +174,6 @@ TINYMCE_DEFAULT_CONFIG = {
     'menubar': True,
     'statusbar': True,
 }
+
+
+CITIES_LIGHT_APP_NAME = 'wedish_accounting'

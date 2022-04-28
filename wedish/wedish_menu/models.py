@@ -28,12 +28,11 @@ class Menu(models.Model):
 
 
 class Category(MP_Node):
-    priority_index = models.IntegerField(default=0)
     name = models.CharField(_('name'), max_length=63,
         help_text=_('ex.: Salad, Roast, Pizza...'))
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE, null=True, verbose_name=_('menu'))
 
-    node_order_by = ['-priority_index', 'name']
+    node_order_by = ['name']
 
     class Meta:
         verbose_name = _('category')
