@@ -29,7 +29,6 @@ class Space(models.Model):
         return f'{self.name} - {self.space_category}'
 
 
-
 class Table(models.Model):
     public_identifier = models.PositiveIntegerField(_('public identifier'), default=0)
     space = models.ForeignKey(Space, on_delete=models.SET_NULL, null=True, verbose_name='space', related_name='tables')

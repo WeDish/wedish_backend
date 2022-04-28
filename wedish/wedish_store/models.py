@@ -123,6 +123,7 @@ class Service(models.Model):
 
 class Category(MP_Node):
     name = models.CharField(max_length=100)
+    
     node_order_by = ['name']
 
     def __str__(self):
