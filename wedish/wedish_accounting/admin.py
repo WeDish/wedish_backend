@@ -19,7 +19,7 @@ class OrderAdmin(admin.ModelAdmin):
 
 class OrderLineAdmin(admin.ModelAdmin):
     list_display = ('id', 'menu_item', 'quantity', 'total_price') 
-    readonly_fields = ('id','total_price',) 
+    readonly_fields = ('id', 'total_price',) 
 
     fieldsets = (
         ('Standart info', {
