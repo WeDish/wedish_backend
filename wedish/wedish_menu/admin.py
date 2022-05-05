@@ -46,5 +46,3 @@ class MenuItemAdmin(admin.ModelAdmin):
 admin.site.register(Menu, MenuAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(MenuItem, MenuItemAdmin)
-admin.site.site_title = _('wedish menu admin')
-admin.site.site_header = _('wedish menu administration')

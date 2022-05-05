@@ -24,5 +24,3 @@ class TableAdmin(admin.ModelAdmin):
 admin.site.register(SpaceCategory, SpaceCategoryAdmin)
 admin.site.register(Space, SpaceAdmin)
 admin.site.register(Table, TableAdmin)
-admin.site.site_title = _('wedish pub admin')
-admin.site.site_header = _('wedish pub administration')

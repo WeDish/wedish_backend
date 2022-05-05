@@ -19,5 +19,3 @@ class GoodIngradientAdmin(admin.ModelAdmin):
 
 admin.site.register(Good, GoodAdmin)
 admin.site.register(GoodIngradient, GoodIngradientAdmin)
-admin.site.site_title = _('wedish recipy admin')
-admin.site.site_header = _('wedish recipy administration')
