@@ -23,4 +23,7 @@ class VATAdmin(admin.ModelAdmin):
 
 admin.site.register(Good, GoodAdmin)
 admin.site.register(GoodIngradient, GoodIngradientAdmin)
+<<<<<<< HEAD
 admin.site.register(VAT, VATAdmin)    
+=======
+>>>>>>> origin/main
