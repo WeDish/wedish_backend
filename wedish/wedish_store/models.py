@@ -15,7 +15,7 @@ UNIT_CATEGORIES = Choices(
 ALLERGEN_CATEGORIES = Choices(
             ('none', _('none')),
             ('celery', _('celery')),
-            ('glutten', _('cereals containing gluten')),
+            ('gluten', _('cereals containing gluten')),
             ('crustaceans', _('crustaceans')),
             ('eggs', _('eggs')),
             ('fish', _('fish')),
