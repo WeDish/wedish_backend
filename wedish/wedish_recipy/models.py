@@ -1,8 +1,39 @@
+from cities_light.models import AbstractCountry, AbstractCity, AbstractRegion, AbstractSubRegion
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from PIL import Image
 from tinymce.models import HTMLField
 from wedish_store import models as store
+
+
+class Country(AbstractCountry):
+    pass
+
+
+class Region(AbstractRegion):
+    pass
+
+
+class SubRegion(AbstractSubRegion):
+    pass
+
+
+class City(AbstractCity):
+    pass
+
+
+class VAT(models.Model):
+    rate = models.DecimalField(_('rate'), max_digits=10, decimal_places=3, blank=True, null=True, default=0)
+    start_date = models.DateTimeField(_('start date'), auto_now_add=True)
+    end_date = models.DateTimeField(_('end date'), blank=True, null=True )
+    country = models.ForeignKey(
+        Country,
+        on_delete=models.CASCADE,
+        null=True,
+    )
+    
+    def __str__(self):
+        return f'{self.rate} {self.start_date}'
 
 
 class Good(models.Model):
@@ -21,6 +52,7 @@ class Good(models.Model):
     description = HTMLField(
         _('description'), max_length=10000, blank=True, default='')
     created_at = models.DateTimeField(_('created at'), auto_now_add=True)
+    vat = models.ForeignKey(VAT, on_delete=models.CASCADE, null=True, verbose_name=_('VAT'))
 
     class Meta:
         verbose_name = _('good')
