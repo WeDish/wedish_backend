@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'wedish_recipy',
     'wedish_store',
 
+    'easy_select2',
     'cities_light',
     'wedish_accounting',
     
