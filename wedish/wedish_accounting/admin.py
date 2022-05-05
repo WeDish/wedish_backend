@@ -34,6 +34,7 @@ class BillAdmin(admin.ModelAdmin):
     list_display = ('customer', 'order', 'total_price', 'discount', 'tips',)
     list_filter = ('customer',)
     search_fields = ('customer', 'order',)
+    readonly_fields = ('total_price',)
 
 
 class VATAdmin(admin.ModelAdmin):

@@ -57,6 +57,7 @@ class Order(models.Model):
         self.get_total_price
         super().save(*args, **kwargs)
         
+        
 
 class OrderLine(models.Model):
     menu_item = models.ForeignKey(
@@ -83,7 +84,6 @@ class OrderLine(models.Model):
 
     def save(self, *args, **kwargs):
         self.get_total_price
-        # self.order.get_total_price
         super().save(*args, **kwargs)
         self.order.save()
 
@@ -91,7 +91,7 @@ class OrderLine(models.Model):
 class Bill(models.Model):
     customer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     order = models.ForeignKey(
-        'Order',
+        Order,
         on_delete=models.PROTECT,
         null=True,
         verbose_name=_('order'),
@@ -102,6 +102,15 @@ class Bill(models.Model):
     tips =  models.DecimalField(_('tips'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
     # surinkti pvmus
     
+    @property
+    def get_total_price(self):
+        self.total_price = self.order.total_price - self.discount + self.tips
+        return self.total_price
+
+    def save(self, *args, **kwargs):
+        self.get_total_price
+        super().save(*args, **kwargs)
+
 
 class VAT(models.Model):
     rate = models.DecimalField(_('rate'), max_digits=10, decimal_places=3, blank=True, null=True, default=0)
