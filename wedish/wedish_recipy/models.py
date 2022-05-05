@@ -17,7 +17,7 @@ class Good(models.Model):
     recommended_retail_price = models.DecimalField(
         _('recommended retail price'), null=False, max_digits=10, decimal_places=2)
     picture = models.ImageField(
-        _('picture'), default='wedish_recipy/img/default.jpg')
+        _('picture'), default='wedish_recipy/goods/default.jpg', upload_to='wedish_recipy/goods')
     description = HTMLField(
         _('description'), max_length=10000, blank=True, default='')
     created_at = models.DateTimeField(_('created at'), auto_now_add=True)

@@ -1,0 +1,38 @@
+{% extends 'wedish_site/base.html' %}
+{% load i18n %}
+
+{% block content %}
+
+<h2>this is a menu</h2>
+
+{% if menu_items %}
+<div class="parent-container d-flex">
+    {% for item in menu_items %}
+        <div class="card mr-3" style="width: 18rem;">
+            <h4 class="card-title pt-1 pl-2"><a href="{% url 'wedish_menu:menu_items_detail' item.id %}">{% trans item.name %}</a></h4>
+            <img class="card-img-top" src={{item.item.picture.url}} alt="Card image cap">
+            <div class="card-body">
+            <p class="card-text">{% trans item.item.description|safe %}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous%}
+            <a href="?page=1">{% trans 'first' %}</a>
+            <a href="?page={{ page_obj.previous_page_number }}">{% trans 'previous' %}</a>
+        {% endif %}
+        <span class="current"> {{page_obj.number}} {% trans 'of' %} {{ page_obj.paginator.num_pages }}</span>
+        {% if page_obj.has_next%}
+            <a href="?page={{ page_obj.next_page_number }}">{% trans 'next' %}</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">{% trans 'last' %}</a>
+        {% endif %}
+    </span>
+</div>
+{% else %}
+<p>{% trans "there are no items in menu" %}</p>
+{% endif %}
+
+{% endblock content %}
