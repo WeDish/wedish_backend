@@ -8,7 +8,7 @@ class GoodAdmin(admin.ModelAdmin):
     list_display_links = ('name',)
     list_filter = ('category',)
     search_fields = ('name', 'description')
-    
+
 
 class GoodIngradientAdmin(admin.ModelAdmin):
     list_display = ('good', 'ingradient', 'quantity', 'unit',)
@@ -21,4 +21,3 @@ admin.site.register(Good, GoodAdmin)
 admin.site.register(GoodIngradient, GoodIngradientAdmin)
 admin.site.site_title = _('wedish recipy admin')
 admin.site.site_header = _('wedish recipy administration')
-
