@@ -1,4 +1,5 @@
 from django.test import TestCase
+from wedish.wedish_accounting.models import Bill
 from wedish_accounting.models import Payment, Order, VAT
 from wedish_pub.models import Space, SpaceCategory
 
@@ -6,6 +7,7 @@ from wedish_pub.models import Space, SpaceCategory
 class PaymentModelTest(TestCase):
 
     def setUp(self):
+        self.bill = Bill.objects.create()
         self.payment = Payment.objects.create(payment_method='Cash', currency='EUR')
 
     def test_payment_creation(self):
@@ -27,7 +29,7 @@ class VATModelTest(TestCase):
 
     def setUp(self):
         self.vat = VAT.objects.create(
-        unit_rate=21.00
+        rate=21.00
         )
 
     def test_vat_creation(self):
@@ -36,7 +38,7 @@ class VATModelTest(TestCase):
 
     def test_unit_rate_content(self):
         vat = self.vat
-        self.assertEqual(vat.unit_rate, 21.00)
+        self.assertEqual(vat.rate, 21.00)
 
     
 
@@ -68,3 +70,5 @@ class VATModelTest(TestCase):
             
 
 #         )
+
+
