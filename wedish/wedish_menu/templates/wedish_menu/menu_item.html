@@ -1,0 +1,16 @@
+{% extends 'wedish_site/base.html' %}
+{% load i18n static %}
+
+{% block content %}
+
+<div>
+    <h1>{{ menu_items_detail.name }}</h1>
+    <div class="w-50 p-3">
+        <img class="img-fluid" src={{menu_items_detail.item.picture.url}} alt="menu item image">
+    </div>
+    <p class="mb-0 font-weight-bold">Description:</p>
+    {{ menu_items_detail.item.description|safe }}
+    <p class="font-weight-bold">Price: {{ menu_items_detail.price }} Eur</p>
+</div>
+
+{% endblock content %}

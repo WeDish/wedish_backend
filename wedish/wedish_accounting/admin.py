@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.translation import gettext as _
-from .models import Order, OrderLine, Bill, VAT, Payment
+from .models import Order, OrderLine, Bill, Payment
 
 
 class OrderLineInline(admin.TabularInline):
@@ -37,12 +37,7 @@ class BillAdmin(admin.ModelAdmin):
     readonly_fields = ('total_price',)
 
 
-class VATAdmin(admin.ModelAdmin):
-    list_display = ('rate', 'start_date', 'end_date',)
-      
-
 admin.site.register(Order, OrderAdmin)
 admin.site.register(OrderLine, OrderLineAdmin)
 admin.site.register(Bill, BillAdmin)
-admin.site.register(VAT, VATAdmin)    
   
