@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from PIL import Image
 from tinymce.models import HTMLField
 from wedish_store import models as store
+from django.utils.timezone import now
 
 
 class Country(AbstractCountry):
@@ -23,9 +24,9 @@ class City(AbstractCity):
 
 
 class VAT(models.Model):
-    rate = models.DecimalField(_('rate'), max_digits=10, decimal_places=3, blank=True, null=True, default=0)
-    start_date = models.DateTimeField(_('start date'), auto_now_add=True)
-    end_date = models.DateTimeField(_('end date'), blank=True, null=True )
+    rate = models.DecimalField(_('rate'), max_digits=10, decimal_places=1, blank=True, null=True, default=0)
+    start_date = models.DateField(_('start date'), default=now)
+    end_date = models.DateField(_('end date'), blank=True, null=True )
     country = models.ForeignKey(
         Country,
         on_delete=models.CASCADE,
