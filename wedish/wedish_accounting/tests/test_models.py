@@ -1,14 +1,23 @@
 from django.test import TestCase
-from wedish.wedish_accounting.models import Bill
-from wedish_accounting.models import Payment, Order, VAT
-from wedish_pub.models import Space, SpaceCategory
+from wedish_accounting.models import Payment, Order, VAT, Bill
+from wedish_pub.models import Table
+
+
 
 
 class PaymentModelTest(TestCase):
 
     def setUp(self):
-        self.bill = Bill.objects.create()
-        self.payment = Payment.objects.create(payment_method='Cash', currency='EUR')
+        self.order = Order.objects.create(
+            total_price=100.00
+        )
+        self.bill = Bill.objects.create(
+            order =self.order, #create order
+            total_price=100,
+            discount=10,
+            tips=2.00
+        )
+        self.payment = Payment.objects.create(payment_method='Cash', currency='EUR', bill=self.bill)
 
     def test_payment_creation(self):
         payment = self.payment
@@ -23,6 +32,7 @@ class PaymentModelTest(TestCase):
         payment=Payment.objects.get(id=1)
         expected_currency = f'{payment.currency}'
         self.assertEqual(expected_currency, 'EUR')
+
         
 
 class VATModelTest(TestCase):
@@ -43,32 +53,19 @@ class VATModelTest(TestCase):
     
 
 
-# class OrderModelTest(TestCase):
+class OrderModelTest(TestCase):
 
 
-#     def setUp(self):
-#         self.user = 
+    def setUp(self):
+        self.order= Order.objects.create(
+            total_price=100.00,
+        )
 
-#         self.space_category = SpaceCategory.objects.create(
-#             name="Bar seat",
-#             description="Short seat"
-#         )
+    def test_order_creation(self):
+        order = self.order
+        self.assertTrue(isinstance(order, Order))
 
-#         self.space = Space.objects.create(
-#             name="Bar",
-#             space_category = self.space_category,
-#             accepts_for_production=True,
-#             description="description"
-#         )
-
-#         self.order = Order.objects.create(
-#             estimated_to_complete="2022-04-27 15:37:00",
-#             price=90.85,
-#             completed_at="2022-04-27 15:47:00",
-#             table_number= "Bar 15",
-#             place = self.space,
-            
-
-#         )
-
+    def test_order_total_price_content(self):
+        order = self.order
+        self.assertEqual(order.total_price, 0)
 
