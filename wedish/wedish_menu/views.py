@@ -11,8 +11,7 @@ class MenuListView(generic.ListView):
     template_name = 'wedish_menu/menu.html'
     context_object_name = 'menu_items'
     queryset = MenuItem.objects.all()
-    paginate_by = 2
-    # paginate_by = 8
+    paginate_by = 4
 
 
 class MenuItemDetailView(generic.DetailView):
