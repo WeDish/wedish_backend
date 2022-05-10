@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'rosetta',
     'tinymce',
     'treebeard',
+    'django_extensions',
     
 ]
 
