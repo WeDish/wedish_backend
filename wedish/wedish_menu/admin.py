@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
-from easy_select2 import select2_modelform
+from easy_select2 import select2_modelform 
 from treebeard.admin import TreeAdmin
 from treebeard.forms import movenodeform_factory
 from .models import Menu, Category, MenuItem
