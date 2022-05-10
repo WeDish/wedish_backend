@@ -3,6 +3,6 @@ from . import views
 
 app_name = 'wedish_pub'
 urlpatterns = [
-    path('pub/', views.MenuListView.as_view(), name='menu'),
+    path('bar/', views.BarAreaView.as_view(), name='bar'),
 
 ]
