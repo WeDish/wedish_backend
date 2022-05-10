@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'wedish_recipy',
     'wedish_store',
 
+    'easy_select2',
     'cities_light',
     'wedish_accounting',
     
@@ -176,4 +177,4 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 
 
-CITIES_LIGHT_APP_NAME = 'wedish_accounting'
+CITIES_LIGHT_APP_NAME = 'wedish_recipy'
