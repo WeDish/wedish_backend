@@ -177,4 +177,4 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 
 
-CITIES_LIGHT_APP_NAME = 'wedish_accounting'
+CITIES_LIGHT_APP_NAME = 'wedish_recipy'

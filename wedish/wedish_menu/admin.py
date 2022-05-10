@@ -13,6 +13,7 @@ class MenuItemLineInline(admin.TabularInline):
     model = MenuItem
     form = menu_item
     show_change_link = True
+    exclude = ['net_price', 'vat_amount']
 
 
 class CategoryLineInline(admin.TabularInline):
@@ -35,7 +36,7 @@ class CategoryAdmin(TreeAdmin):
 
 
 class MenuItemAdmin(admin.ModelAdmin):
-    list_display = ('priority_index', 'name', 'price', 'category_group', 'item')
+    list_display = ('priority_index', 'name', 'price', 'net_price', 'vat_amount', 'category_group', 'item')
     list_display_links = ('name', )
     readonly_fields = ('category_group',)
 

@@ -3,24 +3,8 @@ from datetime import date
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from wedish_pub.models import Table
-from cities_light.models import AbstractCountry, AbstractCity, AbstractRegion, AbstractSubRegion
 from wedish_menu.models import MenuItem
 
-
-class Country(AbstractCountry):
-    pass
-
-
-class Region(AbstractRegion):
-    pass
-
-
-class SubRegion(AbstractSubRegion):
-    pass
-
-
-class City(AbstractCity):
-    pass
 
 
 class Order(models.Model):
@@ -58,7 +42,6 @@ class Order(models.Model):
         super().save(*args, **kwargs)
         
         
-
 class OrderLine(models.Model):
     menu_item = models.ForeignKey(
         MenuItem,
@@ -110,20 +93,6 @@ class Bill(models.Model):
     def save(self, *args, **kwargs):
         self.get_total_price
         super().save(*args, **kwargs)
-
-
-class VAT(models.Model):
-    rate = models.DecimalField(_('rate'), max_digits=10, decimal_places=3, blank=True, null=True, default=0)
-    start_date = models.DateTimeField(_('start date'), auto_now_add=True)
-    end_date = models.DateTimeField(_('end date'), blank=True, null=True )
-    country = models.ForeignKey(
-        Country,
-        on_delete=models.CASCADE,
-        null=True,
-    )
-    
-    def __str__(self):
-        return f'{self.rate} {self.start_date}'
 
 
 class Payment(models.Model):
