@@ -3,6 +3,13 @@
 
 {% block content %}
 
-<h3>{{ name }}</h3>
+<! –– Appearence of Name and Surname or username ––>
+{% if request.user.first_name != '' and  request.user.last_name != ''%}
+    <h2>{{ request.user.first_name }} {{ request.user.last_name }}</h2>
+{% else %}
+    <h2> {{ request.user.username }}</h2>
+{% endif %}
+<! –– Appearence of Name and Surname or username ––>
+
 
 {% endblock content %}
