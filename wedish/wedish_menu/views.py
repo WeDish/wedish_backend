@@ -29,10 +29,10 @@ class MenuItemDetailView(generic.DetailView):
 class ApiGoodListView(generics.ListCreateAPIView):
     queryset = Good.objects.all()
     serializer_class = GoodSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
 class ApiGoodDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Good.objects.all()
     serializer_class = GoodSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    
