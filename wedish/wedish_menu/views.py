@@ -3,8 +3,12 @@ from django.views import generic
 from django.urls import reverse_lazy
 from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
+from rest_framework.views import APIView
 from .models import Menu, MenuItem, Category
-# Create your views here.
+from .serializers import GoodSerializer
+from rest_framework import generics
+from .models import Good
+
 
 class MenuListView(generic.ListView):
     model = MenuItem
@@ -21,3 +25,8 @@ class MenuItemDetailView(generic.DetailView):
 
     # def get_success_url(self):
     #     return reverse_lazy('wedish_menu:menu_items_detail', kwargs={'pk': self.object.id})
+
+
+class ApiGoodListView(generics.ListCreateAPIView):
+    queryset = Good.objects.all()
+    serializer_class = GoodSerializer
