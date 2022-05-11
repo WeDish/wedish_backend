@@ -3,10 +3,9 @@ from django.views import generic
 from django.urls import reverse_lazy
 from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
-from rest_framework.views import APIView
 from .models import Menu, MenuItem, Category
 from .serializers import GoodSerializer
-from rest_framework import generics
+from rest_framework import generics, permissions
 from .models import Good
 
 
@@ -30,3 +29,10 @@ class MenuItemDetailView(generic.DetailView):
 class ApiGoodListView(generics.ListCreateAPIView):
     queryset = Good.objects.all()
     serializer_class = GoodSerializer
+
+
+class ApiGoodDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Good.objects.all()
+    serializer_class = GoodSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    
