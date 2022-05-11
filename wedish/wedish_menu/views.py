@@ -26,13 +26,13 @@ class MenuItemDetailView(generic.DetailView):
     #     return reverse_lazy('wedish_menu:menu_items_detail', kwargs={'pk': self.object.id})
 
 
-class ApiGoodListView(generics.ListCreateAPIView):
+class ApiGoodListView(generics.ListAPIView):
     queryset = Good.objects.all()
     serializer_class = GoodSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAdminUser]
 
 
-class ApiGoodDetailView(generics.RetrieveUpdateDestroyAPIView):
+class ApiGoodDetailView(generics.RetrieveAPIView):
     queryset = Good.objects.all()
     serializer_class = GoodSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAdminUser]

@@ -26,7 +26,6 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
-    # path('', include(routers.url)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
