@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import gettext as _
 from easy_select2 import select2_modelform 
-from .models import Order, OrderLine, Bill, VAT, Payment
+from .models import Order, OrderLine, Bill, Payment, Company
 
 
 order_line = select2_modelform(OrderLine, attrs={'width': '250px'})
@@ -42,7 +42,13 @@ class BillAdmin(admin.ModelAdmin):
     readonly_fields = ('total_price',)
 
 
+class CompanyAdmin(admin.ModelAdmin):
+    list_filter = ('country',)
+    search_fields = ('company_name', 'business_id', 'country')
+
+
 admin.site.register(Order, OrderAdmin)
 admin.site.register(OrderLine, OrderLineAdmin)
 admin.site.register(Bill, BillAdmin)
+admin.site.register(Company, CompanyAdmin)
   
