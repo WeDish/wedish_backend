@@ -19,7 +19,7 @@
 <div>
     <ul class="list-group">
         {% for table in object_list  %}
-            <a class="mt-1" href=""><li class="list-group-item list-group-item-action">{{table.public_identifier}}</li></a>
+            <a class="mt-1" href="{% url 'wedish_pub:bar_table' table.id %}"><li class="list-group-item list-group-item-action">{{table.public_identifier}}</li></a>
         {% endfor %}
         <div>
             <button class="btn btn-success mt-3">New Table</button>
