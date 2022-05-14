@@ -10,8 +10,7 @@ from .models import Table
 
 class BarAreaView(LoginRequiredMixin, generic.ListView):
     model = Table
-    template_name = 'wedish_pub/pub.html'
-    queryset = Table.objects.all()
-    paginate_by = 4 
+    template_name = 'wedish_pub/bar.html'
+    query_set = Table.objects.all()
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
