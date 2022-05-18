@@ -19,7 +19,12 @@
 <div>
     <ul class="list-group">
         {% for table in object_list  %}
-            <a class="mt-1" href="{% url 'wedish_pub:bar_table' table.id %}"><li class="list-group-item list-group-item-action">{{table.public_identifier}}</li></a>
+            {% if table.occupied == True %}
+                <a class="mt-1 " href="{% url 'wedish_pub:bar_table' table.id %}"><li class="list-group-item list-group-item-action bg-danger">{{table.public_identifier}} {{ table.space }}</li></a>
+            {% else %}
+                <a class="mt-1 " href="{% url 'wedish_pub:bar_table' table.id %}"><li class="list-group-item list-group-item-action bg-success">{{table.public_identifier}} {{ table.space }}</li></a>
+            {% endif %}
+            
         {% endfor %}
         <div>
             <button class="btn btn-success mt-3">New Table</button>
