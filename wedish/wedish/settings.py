@@ -38,14 +38,25 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    
     'wedish_menu',
     'wedish_site',
+    'wedish_pub',
     'wedish_recipy',
     'wedish_store',
+
+    'easy_select2',
+    'cities_light',
     'wedish_accounting',
     
     'rosetta',
     'tinymce',
+    'treebeard',
+    'django_extensions',
+    'phonenumber_field',
+    'django_phonenumbers',
+
 
 ]
 
@@ -169,3 +180,6 @@ TINYMCE_DEFAULT_CONFIG = {
     'menubar': True,
     'statusbar': True,
 }
+
+
+CITIES_LIGHT_APP_NAME = 'wedish_recipy'
