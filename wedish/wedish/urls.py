@@ -34,6 +34,7 @@ urlpatterns += i18n_patterns(
     path('tinymce/', include('tinymce.urls')),
     path('wedish_site/', include('wedish_site.urls')),
     path('wedish_menu/', include('wedish_menu.urls')),
+    path('wedish_accounting/', include('wedish_accounting.urls')),
     path('', RedirectView.as_view(url='wedish_site/', permanent=True)),
 
 )
