@@ -6,9 +6,14 @@ from django.utils.http import urlencode
 from django.utils.html import format_html
 from treebeard.admin import TreeAdmin
 from treebeard.forms import movenodeform_factory
+from easy_select2 import select2_modelform 
+
+
+product_item = select2_modelform(Product, attrs={'width': '250px'})
 
 
 class ProductAdmin(admin.ModelAdmin):
+    form = product_item
     list_display = ('name', 'brand', 'unit_category', 'generic_product')
     search_fields = ('name', 'brand__name', 'generic_product__name')
     list_filter = ('name', 'brand', 'generic_product', 'unit_category')

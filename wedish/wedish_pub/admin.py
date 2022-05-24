@@ -1,9 +1,13 @@
 from django.contrib import admin
 from .models import SpaceCategory, Space, Table
 from django.utils.translation import gettext_lazy as _
+from easy_select2 import select2_modelform 
+
+space_item = select2_modelform(SpaceCategory, attrs={'width': '250px'})
 
 
 class SpaceCategoryAdmin(admin.ModelAdmin):
+    form = space_item
     list_display = ('name',)
     list_display_links = ('name',)
     search_fields = ('name',)

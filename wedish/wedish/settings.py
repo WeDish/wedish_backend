@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     
     'wedish_menu',
     'wedish_site',
@@ -52,7 +53,11 @@ INSTALLED_APPS = [
     'rosetta',
     'tinymce',
     'treebeard',
-    
+    'django_extensions',
+    'phonenumber_field',
+    'django_phonenumbers',
+
+
 ]
 
 MIDDLEWARE = [

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
-from easy_select2 import select2_modelform
+from easy_select2 import select2_modelform 
 from treebeard.admin import TreeAdmin
 from treebeard.forms import movenodeform_factory
 from .models import Menu, Category, MenuItem
@@ -14,6 +14,11 @@ class MenuItemLineInline(admin.TabularInline):
     form = menu_item
     show_change_link = True
     exclude = ['net_price', 'vat_amount']
+
+    class Media:
+        js = (
+            '/static/js/get_wedish_recipy_goods_values.js',
+        )
 
 
 class CategoryLineInline(admin.TabularInline):
