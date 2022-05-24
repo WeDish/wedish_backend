@@ -20,7 +20,12 @@ class GoodIngradientAdmin(admin.ModelAdmin):
     list_display_links = ('good',)
     list_filter = ('ingradient',)
     search_fields = ('good', 'ingradient')
-    
+
+
+class VATAdmin(admin.ModelAdmin):
+    list_display = ('rate', 'start_date', 'end_date',)
+
 
 admin.site.register(Good, GoodAdmin)
 admin.site.register(GoodIngradient, GoodIngradientAdmin)
+admin.site.register(VAT, VATAdmin)    

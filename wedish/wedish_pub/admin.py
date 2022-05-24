@@ -13,18 +13,21 @@ class SpaceCategoryAdmin(admin.ModelAdmin):
     list_display_links = ('name',)
     search_fields = ('name',)
     
+
 class SpaceAdmin(admin.ModelAdmin):
     list_display = ('name', 'space_category', 'accepts_for_production',)
     list_display_links = ('name',)
     list_filter = ('space_category',)
     search_fields = ('name',)
     
+
 class TableAdmin(admin.ModelAdmin):
     list_display = ('public_identifier', 'space', 'seats_number',)
     list_display_links = ('public_identifier',)
     list_filter = ('space',)
     search_fields = ('public_identifier',)
     
+
 admin.site.register(SpaceCategory, SpaceCategoryAdmin)
 admin.site.register(Space, SpaceAdmin)
 admin.site.register(Table, TableAdmin)
