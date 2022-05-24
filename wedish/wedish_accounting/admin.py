@@ -1,10 +1,15 @@
 from django.contrib import admin
 from django.utils.translation import gettext as _
-from .models import Order, OrderLine, Bill, VAT, Payment
+from easy_select2 import select2_modelform 
+from .models import Order, OrderLine, Bill, Payment, Company
+
+
+order_line = select2_modelform(OrderLine, attrs={'width': '250px'})
 
 
 class OrderLineInline(admin.TabularInline):
     model = OrderLine
+    form = order_line
     fields = ('id', 'menu_item', 'quantity', 'total_price')
     readonly_fields = ('id', 'total_price',)
 
@@ -37,12 +42,13 @@ class BillAdmin(admin.ModelAdmin):
     readonly_fields = ('total_price',)
 
 
-class VATAdmin(admin.ModelAdmin):
-    list_display = ('rate', 'start_date', 'end_date',)
-      
+class CompanyAdmin(admin.ModelAdmin):
+    list_filter = ('country',)
+    search_fields = ('company_name', 'business_id', 'country')
+
 
 admin.site.register(Order, OrderAdmin)
 admin.site.register(OrderLine, OrderLineAdmin)
 admin.site.register(Bill, BillAdmin)
-admin.site.register(VAT, VATAdmin)    
+admin.site.register(Company, CompanyAdmin)
   

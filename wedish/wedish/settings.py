@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     
     'wedish_menu',
     'wedish_site',
@@ -52,7 +53,11 @@ INSTALLED_APPS = [
     'rosetta',
     'tinymce',
     'treebeard',
-    
+    'django_extensions',
+    'phonenumber_field',
+    'django_phonenumbers',
+
+
 ]
 
 MIDDLEWARE = [
@@ -178,9 +183,6 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 
 
-CITIES_LIGHT_APP_NAME = 'wedish_accounting'
-
-
 # Email backend
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'
@@ -188,3 +190,5 @@ EMAIL_POST = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'user@gmail.com'
 EMAIL_HOST_PASSWORD = '*********'
+
+CITIES_LIGHT_APP_NAME = 'wedish_recipy'
