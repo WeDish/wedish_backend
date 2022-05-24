@@ -1,0 +1,20 @@
+{% extends 'wedish_site/base.html' %}
+{% load i18n static %}
+
+{% block content %}
+<div>
+    <section>
+        <h1>{% trans 'Bill' %}</h1>
+        <h5>Estimated to complete: {{ bill_detail.order.estimated_to_complete }}</h5>
+        <h5>Table: {{ bill_detail.order.table }}</h5>
+        <h5>Customer: {{ bill_detail.customer }}</h5>
+        <h6>User: {{ bill_detail.order.user }}</h6>
+        <h6>Server name: {{ bill_detail.order.server }}</h6>
+        <p>Tips: {{ bill_detail.tips }}</p>
+        <p>Discount: {{ bill_detail.discount }}</p>
+        <h5>Completed at: {{ bill_detail.order.completed_at }}</h5>
+        <h4>Total price: {{ bill_detail.total_price }}</h4>
+    </section>
+</div>
+
+{% endblock content %}

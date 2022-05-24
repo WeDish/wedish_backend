@@ -54,9 +54,8 @@ INSTALLED_APPS = [
     'tinymce',
     'treebeard',
     'django_extensions',
-    'phonenumber_field',
     'django_phonenumbers',
-
+    
 
 ]
 

@@ -10,6 +10,20 @@
     <link rel="stylesheet" href="{% static 'wedish/css/style.css' %}">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <title>{% block title %}{% trans 'Wedish' %}{% endblock title %}</title>
+    <style>
+        @page {
+            size: 'A4';
+            margin: 2.5cm 1.5cm 3.5cm 1.5cm;
+    
+            @top-center {
+                content: 'Wedish';
+            }
+    
+            @bottom-right {
+                content: "Page " counter(page) " of " counter(pages);
+            }
+        }
+        </style>
 </head>
 <body>
     {% include 'wedish_site/navigation.html' %}
