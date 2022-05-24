@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     
     'wedish_menu',
     'wedish_site',
@@ -52,7 +53,10 @@ INSTALLED_APPS = [
     'rosetta',
     'tinymce',
     'treebeard',
+    'django_extensions',
+    'django_phonenumbers',
     
+
 ]
 
 MIDDLEWARE = [
@@ -146,6 +150,7 @@ MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
 # TinyMCE Config
 TINYMCE_DEFAULT_CONFIG = {
@@ -176,5 +181,13 @@ TINYMCE_DEFAULT_CONFIG = {
     'statusbar': True,
 }
 
+
+# Email backend
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_POST = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'user@gmail.com'
+EMAIL_HOST_PASSWORD = '*********'
 
 CITIES_LIGHT_APP_NAME = 'wedish_recipy'

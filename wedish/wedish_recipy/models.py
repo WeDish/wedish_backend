@@ -34,7 +34,7 @@ class VAT(models.Model):
     )
     
     def __str__(self):
-        return f'{self.rate} {self.start_date}'
+        return f'{self.rate} @ {self.start_date}'
 
 
 class Good(models.Model):

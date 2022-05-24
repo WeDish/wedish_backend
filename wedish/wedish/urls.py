@@ -20,18 +20,22 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.views.generic import RedirectView
 
+
 urlpatterns = [
     path('rosetta/', include('rosetta.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
+    path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('wedish_site/', include('wedish_site.urls')),
     path('wedish_menu/', include('wedish_menu.urls')),
+    path('wedish_accounting/', include('wedish_accounting.urls')),
     path('', RedirectView.as_view(url='wedish_site/', permanent=True)),
 
 )

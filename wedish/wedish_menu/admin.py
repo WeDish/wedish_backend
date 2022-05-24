@@ -15,6 +15,11 @@ class MenuItemLineInline(admin.TabularInline):
     show_change_link = True
     exclude = ['net_price', 'vat_amount']
 
+    class Media:
+        js = (
+            '/static/js/get_wedish_recipy_goods_values.js',
+        )
+
 
 class CategoryLineInline(admin.TabularInline):
     model = Category
