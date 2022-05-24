@@ -28,8 +28,8 @@ class Order(models.Model):
         verbose_name = _('order')
         verbose_name_plural = ('orders')
    
-    def __str__(self) -> str:
-        return str(self.total_price)
+    def __str__(self):
+        return f'{self.server} - {self.table} - {self.total_price} EUR'
     
     @property
     def get_total_price(self):
@@ -79,13 +79,15 @@ class Bill(models.Model):
         on_delete=models.PROTECT,
         null=True,
         verbose_name=_('order'),
-        related_name='orders'
+        related_name='orders',
     )
     total_price = models.DecimalField(_('total price'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
     discount =  models.DecimalField(_('discount'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
     tips =  models.DecimalField(_('tips'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
-    # surinkti pvmus
-    
+   
+    def __str__(self):
+        return f'{self.customer} @ {self.discount} {self.tips}'
+
     @property
     def get_total_price(self):
         self.total_price = self.order.total_price - self.discount + self.tips

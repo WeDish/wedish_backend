@@ -5,6 +5,10 @@ cities_light norint išsiimti šalis komanda:
 ```
 python manage.py loaddata ../countries.json
 ```
+
+## Weasyprint requires GTK libraries
+In case of Windows you can download them [from here](https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer/releases/download/2022-01-04/gtk3-runtime-3.24.31-2022-01-04-ts-win64.exe).
+
 -------------------------------------------
 Graph models su pygraphviz
 norint gauti modelį reikalinga komanda:
