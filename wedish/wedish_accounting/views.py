@@ -53,4 +53,3 @@ def bill_summary(request, pk):
 
 
 
-
