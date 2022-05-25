@@ -12,13 +12,15 @@ class BrandModelTest(TestCase):
         brand = self.brand
         self.assertTrue(isinstance(brand, Brand))
 
-    def test_brand_name_content(self):
-        brand = self.brand
-        self.assertEqual(brand.name, 0)
+    # def test_brand_name_content(self):
+    #     brand = self.brand
+    #     self.assertEqual(brand.name, 0)
     
     def test_name_str(self):
-        brand = self.brand
-        self.assertEqual(str(brand), "0")
+        brand = Brand.objects.get(id=1)
+        self.assertEqual(str(brand.name), 'Utenos mesa')
+        expected_string = f"{brand.name}"
+        self.assertEqual(str(brand), expected_string)
 
 
 class ProductModelTest(TestCase):
@@ -29,13 +31,15 @@ class ProductModelTest(TestCase):
         product = self.product
         self.assertTrue(isinstance(product, Product))
 
-    def test_brand_name_content(self):
-        product = self.product
-        self.assertEqual(product.name, 0)
+    # def test_brand_name_content(self):
+        # product = self.product
+        # self.assertEqual(product.name, 0)
     
     def test_name_str(self):
-        product = self.product
-        self.assertEqual(str(product), "0")
+        product = Product.objects.get(id=1)
+        self.assertEqual(str(product), "Kiaulienos išpjova")
+        expected_string = f"{product.name}"
+        self.assertEqual(str(product), expected_string)
 
 
 class ServiceModelTest(TestCase):
@@ -46,13 +50,15 @@ class ServiceModelTest(TestCase):
         service = self.service
         self.assertTrue(isinstance(service, Service))
 
-    def test_service_name_content(self):
-        service = self.service
-        self.assertEqual(service.name, 0)
+    # def test_service_name_content(self):
+    #     service = self.service
+    #     self.assertEqual(service.name, 0)
     
     def test_service_str(self):
-        service = self.service
-        self.assertEqual(str(service), "0")
+        service = Product.objects.get(id=1)
+        self.assertEqual(str(service), "Baras")
+        expected_string = f"{service.name}"
+        self.assertEqual(str(service), expected_string)
 
 
 class GenericProductModelTest(TestCase):
@@ -63,15 +69,17 @@ class GenericProductModelTest(TestCase):
         generic_product = self.generic_product
         self.assertTrue(isinstance(generic_product, GenericProduct))
 
-    def test_service_name_content(self):
-        generic_product = self.generic_product
-        self.assertEqual(generic_product.name, 0)
+    # def test_service_name_content(self):
+    #     generic_product = self.generic_product
+    #     self.assertEqual(generic_product.name, 0)
     
     def test_service_str(self):
-        generic_product = self.generic_product
-        self.assertEqual(str(generic_product), "0")
+        generic_product = Product.objects.get(id=1)
+        self.assertEqual(str(generic_product), "Baras")
+        expected_string = f"{generic_product.name}"
+        self.assertEqual(str(generic_product), expected_string)
 
 
-class ProductAllergenModelTest(TestCase):
-    def setUp(self):
-        self.product_allergen = ProductAllergen.objects.create(name='Kiaulienos išpjova')
+# class ProductAllergenModelTest(TestCase):
+#     def setUp(self):
+#         self.product_allergen = ProductAllergen.objects.create(name='Kiaulienos išpjova')
