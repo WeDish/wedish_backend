@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext_lazy as _
 from .models import Table
-from wedish_accounting.models import Order
+from wedish_accounting.models import Order, OrderLine
 
 # Create your views here.
 
@@ -24,5 +24,6 @@ class BarTableView(LoginRequiredMixin, generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['order'] = Order.objects.filter(table=context['table'].id)
+        context['orders'] = Order.objects.filter(table=context['table'].id)
+        
         return context

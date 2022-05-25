@@ -57,7 +57,7 @@ class OrderLine(models.Model):
         on_delete=models.CASCADE,
         null=True,
         verbose_name=_('order'),
-        related_name='places',
+        related_name='order_lines',
     )
     total_price = models.DecimalField(_('total price'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
    
