@@ -1,21 +1,5 @@
 version: "3.7"  # nurodome suderinamo docker-compose versiją
 services:       # services yra konteinerių sąrašas
-  db:           # Duomenų bazės konteineris
-    # naudosime standartinį postgres image
-    image: postgres
-    # konteinerio pavadinimas
-    container_name: wedish.db
-    restart: always
-    ports:
-      - 5432:5432
-    volumes:
-      - ./dbdata:/var/lib/postgresql/data
-    # nurodžius environment'e duomenų bazės parametrus, nauajs postgres konteineris šiais kredencialais sukurs tuščią duomenų bazę. Produkcinėje aplinkoje siūlytume nenurodyti, arba pakeisti čia nustatytus.
-    environment:
-      POSTGRES_DB: wedish
-      POSTGRES_USER: wedish
-      POSTGRES_PASSWORD: nesakysiu
-      POSTGRES_PORT: 5432
   dev:          # konfigūruojame konteinerį pavadinimu web
     # build komanda nudorome, kad iš kuriame kataloge (šiuo atveju iš esančio katalogo, .) esančio Dockerfile statyti konteinerį
     build: .
@@ -54,7 +38,22 @@ services:       # services yra konteinerių sąrašas
                python manage.py migrate &&
                python manage.py collectstatic --noinput &&
                gunicorn wedish.wsgi --bind 0.0.0.0:8000"
-
+  db:           # Duomenų bazės konteineris
+    # naudosime standartinį postgres image
+    image: postgres
+    # konteinerio pavadinimas
+    container_name: wedish.db
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./dbdata:/var/lib/postgresql/data
+    # nurodžius environment'e duomenų bazės parametrus, nauajs postgres konteineris šiais kredencialais sukurs tuščią duomenų bazę. Produkcinėje aplinkoje siūlytume nenurodyti, arba pakeisti čia nustatytus.
+    environment:
+      POSTGRES_DB: wedish
+      POSTGRES_USER: wedish
+      POSTGRES_PASSWORD: nesakysiu
+      POSTGRES_PORT: 5432
   nginx:           # Nginx konteineris
     # surenkame nginx konteinerį su mūsų projekto .conf
     build: ./nginx/
