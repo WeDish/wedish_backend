@@ -2,7 +2,7 @@ from django.conf import settings
 from datetime import date
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from phonenumber_field.modelfields import PhoneNumberField
+from phonenumber_field.modelfields import PhoneNumberField 
 from wedish_pub.models import Table
 from wedish_menu.models import MenuItem
 from wedish_recipy.models import Country
