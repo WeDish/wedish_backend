@@ -38,7 +38,7 @@ class MenuTestCase(TestCase):
 
     def test_string_method(self):
         menu1 = Menu.objects.get(id=1)
-        today_date = '2022-05-24'
+        today_date = '2022-05-25'
         self.assertEqual(str(menu1.name), 'Daily menu 365')
         self.assertEqual(str(menu1.valid_from), today_date)
         self.assertEqual(str(menu1.valid_until), today_date)
