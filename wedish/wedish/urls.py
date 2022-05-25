@@ -31,10 +31,11 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('wedish_site/', include('wedish_site.urls')),
     path('wedish_menu/', include('wedish_menu.urls')),
     path('wedish_pub/', include('wedish_pub.urls')),
     path('', RedirectView.as_view(url='wedish_site/', permanent=True)),
-
+    
 )

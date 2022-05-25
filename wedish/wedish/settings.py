@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-%o2588m188+b0&lan5s+1t8#qdk*x2g-1abhu)q6o(k)q&+fbu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["wedish.local"]
 
 
 # Application definition
@@ -54,9 +54,8 @@ INSTALLED_APPS = [
     'tinymce',
     'treebeard',
     'django_extensions',
-    'phonenumber_field',
     'django_phonenumbers',
-
+    
 
 ]
 
@@ -151,6 +150,7 @@ MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
 # TinyMCE Config
 TINYMCE_DEFAULT_CONFIG = {
@@ -181,5 +181,13 @@ TINYMCE_DEFAULT_CONFIG = {
     'statusbar': True,
 }
 
+
+# Email backend
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_POST = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'user@gmail.com'
+EMAIL_HOST_PASSWORD = '*********'
 
 CITIES_LIGHT_APP_NAME = 'wedish_recipy'
