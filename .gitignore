@@ -7,7 +7,7 @@ __pycache__/
 *.so
 
 # Django Stuff
-static/
+wedish/static/
 media/
 
 

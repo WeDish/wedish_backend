@@ -2,25 +2,10 @@ from django.conf import settings
 from datetime import date
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from phonenumber_field.modelfields import PhoneNumberField
 from wedish_pub.models import Table
-from cities_light.models import AbstractCountry, AbstractCity, AbstractRegion, AbstractSubRegion
 from wedish_menu.models import MenuItem
-
-
-class Country(AbstractCountry):
-    pass
-
-
-class Region(AbstractRegion):
-    pass
-
-
-class SubRegion(AbstractSubRegion):
-    pass
-
-
-class City(AbstractCity):
-    pass
+from wedish_recipy.models import Country
 
 
 class Order(models.Model):
@@ -35,16 +20,29 @@ class Order(models.Model):
     )
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, related_name='order_for_user')
     server = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, related_name='order_for_staff') #qurysetus admine darytis is staff true
+    total_price = models.DecimalField(
+        _('total price'), null=True, max_digits=10, decimal_places=2, blank=True)
 
     class Meta:
         ordering = ['table', 'server', 'estimated_to_complete']
         verbose_name = _('order')
         verbose_name_plural = ('orders')
    
-    def __str__(self) -> str:
-        return self.price
+    def __str__(self):
+        return f'{self.server} - {self.table} - {self.total_price} EUR'
+    
+    @property
+    def get_total_price(self):
+        self.total_price = 0
+        for line in self.places.all():
+            self.total_price += line.total_price
+        return self.total_price
 
-
+    def save(self, *args, **kwargs):
+        self.get_total_price
+        super().save(*args, **kwargs)
+        
+        
 class OrderLine(models.Model):
     menu_item = models.ForeignKey(
         MenuItem,
@@ -55,7 +53,7 @@ class OrderLine(models.Model):
     )
     quantity = models.DecimalField(_('quantity'), max_digits=10, decimal_places=3)
     order = models.ForeignKey(
-        'Order',
+        Order,
         on_delete=models.CASCADE,
         null=True,
         verbose_name=_('order'),
@@ -68,37 +66,58 @@ class OrderLine(models.Model):
         self.total_price = self.menu_item.price * self.quantity
         return self.total_price
 
+    def save(self, *args, **kwargs):
+        self.get_total_price
+        super().save(*args, **kwargs)
+        self.order.save()
+
 
 class Bill(models.Model):
     customer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     order = models.ForeignKey(
-        'Order',
+        Order,
         on_delete=models.PROTECT,
         null=True,
         verbose_name=_('order'),
-        related_name='orders'
+        related_name='orders',
     )
     total_price = models.DecimalField(_('total price'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
     discount =  models.DecimalField(_('discount'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
     tips =  models.DecimalField(_('tips'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
-    # surinkti pvmus
-    
-
-class VAT(models.Model):
-    rate = models.DecimalField(_('rate'), max_digits=10, decimal_places=3, blank=True, null=True, default=0)
-    start_date = models.DateTimeField(_('start date'), auto_now_add=True)
-    end_date = models.DateTimeField(_('end date'), blank=True, null=True )
-    country = models.ForeignKey(
-        Country,
-        on_delete=models.CASCADE,
-        null=True,
-    )
-    
+   
     def __str__(self):
-        return f'{self.rate} {self.start_date}'
+        return f'{self.customer} @ {self.discount} {self.tips}'
+
+    @property
+    def get_total_price(self):
+        self.total_price = self.order.total_price - self.discount + self.tips
+        return self.total_price
+
+    def save(self, *args, **kwargs):
+        self.get_total_price
+        super().save(*args, **kwargs)
 
 
 class Payment(models.Model):
     payment_method = models.CharField(_('payment method'), max_length=100, db_index=True)
     currency = models.CharField(_('currency'), max_length=10, db_index=True)
     bill = models.ForeignKey(Bill, on_delete=models.PROTECT, verbose_name=_('bill'))
+
+    def __str__(self):
+        return f'{self.payment_method} @ {self.currency}'
+
+
+class Company(models.Model):
+    company_name = models.CharField(_('company name'), max_length=100, db_index=True, unique=True)
+    business_id = models.DecimalField(_('business id'), max_digits=20, decimal_places=0, unique=True, help_text = _('company id'))
+    VAT_id = models.CharField(_('VAT id'), max_length=12, db_index=True, unique=True)
+    IBAN = models.CharField(_('IBAN'), max_length=34, db_index=True, null=True, blank=True)
+    BIC = models.CharField(_('BIC'), max_length=11, null=True, blank=True)
+    address = models.CharField(_('address'), max_length=200)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE, null=True)
+    email = models.EmailField(_('email'), max_length=150, blank=True, null=True)
+    phone_number = PhoneNumberField(_('phone number'), null=True, blank=True)
+    is_owner = models.BooleanField(_('is owner'), default=False)
+
+    def __str__(self):
+        return f'{self.company_name}'
