@@ -8,7 +8,6 @@ from .models import Menu, Category, MenuItem
 
 menu_item = select2_modelform(MenuItem, attrs={'width': '250px'})
 
-
 class MenuItemLineInline(admin.TabularInline):
     model = MenuItem
     form = menu_item
@@ -24,6 +23,17 @@ class MenuItemLineInline(admin.TabularInline):
 class CategoryLineInline(admin.TabularInline):
     model = Category
     show_change_link = True
+
+class MenuItemLineInline(admin.TabularInline):
+    model = MenuItem
+    form = menu_item
+    show_change_link = True
+    exclude = ['net_price', 'vat_amount']
+
+    class Media:
+        js = (
+            '/static/js/get_wedish_recipy_goods_values.js',
+        )
 
 
 class MenuAdmin(admin.ModelAdmin):
