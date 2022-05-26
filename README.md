@@ -3,7 +3,12 @@
 cities_light norint išsiimti šalis komanda:
 
 ```
-python manage.py loaddata ../countries.json
+Iklijuoti countries i konteineri:
+docker cp ./countries.json wedish.dev:/app
+Pasileisti bash:
+docker exec -it wedish.dev bash
+Paleisti json:
+python manage.py loaddata countries.json
 ```
 
 ## Weasyprint requires GTK libraries
