@@ -1,8 +1,49 @@
 {% extends 'wedish_site/base.html' %}
 {% load i18n %}
+{% load static %}
 
 {% block content %}
-
-<h1>Hello world</h1>
-
+<header class="masthead">
+    <div>
+        <div class="slide current"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+    </div>
+    <div class="container">
+        <div class="masthead-subheading">{% trans 'Welcome To Our Restaurant!' %}</div>
+        <div class="masthead-heading text-uppercase">{% trans 'It is Nice To Meet You' %}</div>
+        <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
+    </div>
+</header>
+<section class="page-section" id="services">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">{% trans 'We offer' %}</h2>
+            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fa-solid fa-burger"></i>
+                </span>
+                <h4 class="my-3">{% trans 'Modern Food' %}</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fa-solid fa-pepper-hot"></i>
+                </span>
+                <h4 class="my-3">{% trans 'Fresh Food' %}</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fa-solid fa-leaf"></i>
+                </span>
+                <h4 class="my-3">{% trans 'Eco Friendly' %}</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock content %}
