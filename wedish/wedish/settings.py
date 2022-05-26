@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-%o2588m188+b0&lan5s+1t8#qdk*x2g-1abhu)q6o(k)q&+fbu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["wedish.local"]
 
 
 # Application definition
@@ -96,8 +96,12 @@ WSGI_APPLICATION = 'wedish.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        "ENGINE": "django.db.backends.postgresql",
+        "HOST": "db-wedish",
+        "NAME": "wedish",
+        "USER": "wedish",
+        "PASSWORD": "nesakysiu",
+        "PORT": 5432
     }
 }
 
