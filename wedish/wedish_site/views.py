@@ -59,3 +59,4 @@ def profile(request):
         'form' : form,
     }
     return render (request, 'wedish_site/profile.html', context=context)
+    
