@@ -32,6 +32,7 @@ phonenumbers==8.12.48
 Pillow==9.1.0
 polib==1.1.1
 progressbar2==4.0.0
+psycopg2-binary==2.9.3
 pycparser==2.21
 pydot==1.4.2
 pydyf==0.1.2
