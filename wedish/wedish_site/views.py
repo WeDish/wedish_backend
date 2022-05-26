@@ -55,8 +55,6 @@ def profile(request):
             return redirect(reverse_lazy('wedish_site:profile'))
     else:
         form = UserUpdateForm(instance=request.user)
-    context = {
-        'form' : form,
-    }
+    context = {'form' : form,}
     return render (request, 'wedish_site/profile.html', context=context)
     

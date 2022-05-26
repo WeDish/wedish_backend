@@ -17,7 +17,7 @@ class Order(models.Model):
         null=True,
         blank=True,
         verbose_name=_('company'),
-        related_name='companys',
+        related_name='companies',
     )
     table = models.ForeignKey(
         Table,
@@ -42,7 +42,7 @@ class Order(models.Model):
     @property
     def get_total_price(self):
         self.total_price = 0
-        for line in self.orderline.all():
+        for line in self.order_lines.all():
             self.total_price += line.total_price
         return self.total_price
 
