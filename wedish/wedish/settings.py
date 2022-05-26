@@ -141,12 +141,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = 'media/'
-MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -194,3 +191,9 @@ EMAIL_HOST_USER = 'user@gmail.com'
 EMAIL_HOST_PASSWORD = '*********'
 
 CITIES_LIGHT_APP_NAME = 'wedish_recipy'
+
+
+#Stripe
+STRIPE_PUBLIC_KEY = "pk_test_51L3eGQIoY0E6AmlvmUWY1f11zbMPSPOPReWGL5TCi1UWPdJKsAczJkEh9MzE8JW4oUUxJzCBswYa8NiVEOKyNIHB00zG9xiWiC"
+STRIPE_SECRET_KEY = "sk_test_51L3eGQIoY0E6AmlvBBWHq5WKhEkS55nmrsWrX27OPAPVoPyuahOEkQ0tpugSE6kK7v9j1x9YV9F7JET3F26hiQPU00M7A00vZs"
+STRIPE_WEBHOOK_SECRET = ""
