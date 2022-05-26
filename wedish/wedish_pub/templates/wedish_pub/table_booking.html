@@ -1,0 +1,34 @@
+{% extends 'wedish_site/base.html' %}
+{% load i18n static %}
+
+{% block content %}
+    <h1>{% trans 'Book table' %}</h1>
+    <hr>
+    <div>
+        <h6 class="text-secondary">{% trans 'User login name' %}: {{ user.username }}</h6>
+        <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+    </div>
+    <hr>
+    <form action="" method="post">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <label for="exampleFormControlSelect1">{% trans 'Number of guests' %}</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <label for="date1">{% trans 'Date, time' %}</label>
+            <input class="form-control" id="date1" name="date1" placeholder="MM/DD/YYY" type="datetime-local"/>
+            <br>
+            <button class="btn btn-secondary" type="submit">{% trans 'Book' %}</button>
+        </fieldset>
+    </form>
+{% endblock content %}
