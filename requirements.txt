@@ -23,6 +23,8 @@ django-weasyprint==2.1.0
 djangorestframework==3.13.1
 fonttools==4.33.3
 gensim==4.2.0
+gobject==0.1.0
+gunicorn==20.1.0
 html5lib==1.1
 idna==3.3
 numpy==1.22.3
@@ -30,6 +32,7 @@ phonenumbers==8.12.48
 Pillow==9.1.0
 polib==1.1.1
 progressbar2==4.0.0
+psycopg2-binary==2.9.3
 pycparser==2.21
 pydot==1.4.2
 pydyf==0.1.2
