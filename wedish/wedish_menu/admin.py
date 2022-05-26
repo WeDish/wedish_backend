@@ -21,16 +21,10 @@ class MenuItemLineInline(admin.TabularInline):
         )
 
 
-class CategoryLineInline(admin.TabularInline):
-    model = Category
-    show_change_link = True
-
-
 class MenuAdmin(admin.ModelAdmin):
     list_display = ('name', 'valid_from', 'valid_until', 'publicity')
     search_fields = ('name',)
     list_filter = ('valid_from', 'valid_until', 'publicity')
-    inlines = (CategoryLineInline,)
 
 
 class CategoryAdmin(TreeAdmin):
