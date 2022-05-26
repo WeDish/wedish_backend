@@ -34,3 +34,13 @@ Išjungimas
 ```
 docker-compose down
 ```
+## Stripe
+```
+Registruojam stripe sąsają.
+www.stripe.com
+```
+Prisijungus, API keys surandame: 
+https://dashboard.stripe.com/test/apikeys
+```
+Implementacija:
+https://stripe.com/docs/checkout/quickstart

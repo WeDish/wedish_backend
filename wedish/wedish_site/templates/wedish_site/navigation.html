@@ -3,12 +3,13 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
     {% block navigation %}
         <div class="logo">
             <h1>WeDish</h1>
         </div>
         <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="{% url 'wedish_site:checkout' %}">{% trans 'Checkout' %}</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'wedish_site:index' %}">{% trans 'Home' %}</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'wedish_menu:menu' %}">{% trans 'Menu' %}</a></li>
             {% if not request.user.is_authenticated%}
