@@ -8,7 +8,7 @@ from .models import Menu, Category, MenuItem
 
 menu_item = select2_modelform(MenuItem, attrs={'width': '250px'})
 
-class MenuItemLineInline(admin.TabularInline):
+class MenuItemInline(admin.TabularInline):
     model = MenuItem
     form = menu_item
     show_change_link = True
@@ -20,11 +20,11 @@ class MenuItemLineInline(admin.TabularInline):
         )
 
 
-class CategoryLineInline(admin.TabularInline):
+class CategoryInline(admin.TabularInline):
     model = Category
     show_change_link = True
 
-class MenuItemLineInline(admin.TabularInline):
+class MenuItemInline(admin.TabularInline):
     model = MenuItem
     form = menu_item
     show_change_link = True
@@ -40,14 +40,14 @@ class MenuAdmin(admin.ModelAdmin):
     list_display = ('name', 'valid_from', 'valid_until', 'publicity')
     search_fields = ('name',)
     list_filter = ('valid_from', 'valid_until', 'publicity')
-    inlines = (CategoryLineInline,)
+    inlines = (CategoryInline,)
 
 
 class CategoryAdmin(TreeAdmin):
     list_display = ('name', 'menu',)
     form = movenodeform_factory(Category)
     list_filter = ('menu',)
-    inlines = (MenuItemLineInline,)
+    inlines = (MenuItemInline,)
 
 
 class MenuItemAdmin(admin.ModelAdmin):
