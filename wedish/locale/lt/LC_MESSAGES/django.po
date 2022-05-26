@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-27 21:55+0300\n"
+"POT-Creation-Date: 2022-05-25 18:54+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,78 +20,204 @@ msgstr ""
 "11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
 "1 : n % 1 != 0 ? 2: 3);\n"
 
-#: .\wedish_accounting\admin.py:26
-msgid "Availability"
-msgstr "Prieinamumas"
+#: .\templates\registration\password_reset_complete.html:3
+#: .\templates\registration\password_reset_complete.html:5
+msgid "Password reset complete"
+msgstr "Slaptažodis atkurtas"
+
+#: .\templates\registration\password_reset_complete.html:6
+msgid "Your new password has been set. You can"
+msgstr "Jūsų slaptažodis nustatytas iš naujo. Galite prisijungti"
+
+#: .\templates\registration\password_reset_complete.html:6
+msgid "log in"
+msgstr "prisijungti"
+
+#: .\templates\registration\password_reset_confirm.html:5
+msgid "Enter new Password"
+msgstr "Įveskite naują slaptažodį"
+
+#: .\templates\registration\password_reset_confirm.html:10
+msgid "New Password"
+msgstr "Naujas slaptažodis"
+
+#: .\templates\registration\password_reset_confirm.html:12
+msgid "Your password must containt at least 8 characters"
+msgstr "Jūsų slaptažodį turi sudaryti mažiausiai 8 simboliai"
+
+#: .\templates\registration\password_reset_confirm.html:15
+msgid "Confirm Password"
+msgstr "Patvirtinkite slaptažodį"
+
+#: .\templates\registration\password_reset_confirm.html:21
+msgid "Password change link has expired."
+msgstr "Slaptažodžio keitimo nuoroda nebegalioja."
+
+#: .\templates\registration\password_reset_done.html:4
+msgid "Check your inbox"
+msgstr "Patikrinkite savo elektroninį paštą"
+
+#: .\templates\registration\password_reset_done.html:5
+msgid "We\\"
+msgstr "Elektroniniu paštu jums išsiuntėme instrukcijas, kaip iš naujo atkurti slaptažodį. Netrukus turėtumėte gauti elektroninį laišką!"
+
+#: .\templates\registration\password_reset_email.html:2
+msgid ""
+"n"
+"Someone has sent you this link to reset your password. If it was you, "
+"please follow the link."
+msgstr "Jums buvo išsiųsta slaptažodžio atkūrimo nuoroda. Jei tai buvote jūs, paspauskite ant šios nuorodos."
+
+#: .\templates\registration\password_reset_form.html:5
+msgid "Forgot Password"
+msgstr "Pamiršote slaptažodį?"
+
+#: .\templates\registration\password_reset_form.html:6
+msgid "Enter your email address below, and we\\"
+msgstr "Toliau įveskite savo elektroninio pašto adresą ir mes atsiųsime instrukcijas, kaip nustatyti naują"
+
+#: .\templates\registration\password_reset_form.html:13
+#: .\wedish_site\forms.py:8 .\wedish_site\templates\wedish_site\profile.html:11
+#: .\wedish_site\templates\wedish_site\register.html:16
+msgid "Email"
+msgstr "Elektroninis paštas"
+
+#: .\templates\registration\password_reset_form.html:14
+msgid "Email address..."
+msgstr "Elektroninio pašto adresas..."
+
+#: .\templates\registration\password_reset_form.html:16
+msgid "Reset"
+msgstr "Atkurti"
 
 #: .\wedish_accounting\models.py:12
-msgid "Estimated to complete"
-msgstr "Pradėtas"
+msgid "estimated to complete"
+msgstr "pradėtas"
 
 #: .\wedish_accounting\models.py:13
-msgid "Price"
-msgstr "Kaina"
-
-#: .\wedish_accounting\models.py:14
 msgid "completed_at"
 msgstr "baigtas"
 
-#: .\wedish_accounting\models.py:15
-msgid "Table number"
-msgstr "Stalo numeris"
+#: .\wedish_accounting\models.py:18 .\wedish_pub\models.py:38
+msgid "table"
+msgstr "stalas"
 
-#: .\wedish_accounting\models.py:20
-msgid "Space"
-msgstr "Erdvė"
+#: .\wedish_accounting\models.py:24 .\wedish_accounting\models.py:62
+#: .\wedish_accounting\models.py:84
+msgid "total price"
+msgstr "viso mokėti"
 
-#: .\wedish_accounting\models.py:29 .\wedish_accounting\models.py:50
-#: .\wedish_accounting\models.py:64
-msgid "Order"
-msgstr "Užsakymas"
+#: .\wedish_accounting\models.py:28 .\wedish_accounting\models.py:59
+#: .\wedish_accounting\models.py:81
+msgid "order"
+msgstr "užsakymas"
 
-#: .\wedish_accounting\models.py:42
-msgid "Menu item"
-msgstr "Meniu punktas"
+#: .\wedish_accounting\models.py:51 .\wedish_menu\models.py:55
+msgid "menu item"
+msgstr "meniu punktas "
 
-#: .\wedish_accounting\models.py:45
-msgid "Quantity"
-msgstr "Kiekis"
+#: .\wedish_accounting\models.py:54 .\wedish_recipy\models.py:82
+msgid "quantity"
+msgstr "kiekis"
 
-#: .\wedish_accounting\models.py:53 .\wedish_accounting\models.py:68
-msgid "Total price"
-msgstr "Viso mokėti"
+#: .\wedish_accounting\models.py:85
+msgid "discount"
+msgstr "nuolaida"
 
-#: .\wedish_accounting\models.py:69
-msgid "Discount"
-msgstr "Nuolaida"
+#: .\wedish_accounting\models.py:86
+msgid "tips"
+msgstr "arbatpinigiai"
 
-#: .\wedish_accounting\models.py:70
-msgid "Tips"
-msgstr "Arbatpinigiai"
+#: .\wedish_accounting\models.py:102
+msgid "payment method"
+msgstr "mokėjimas"
 
-#: .\wedish_accounting\models.py:75
-msgid "Rate"
-msgstr "Kursas"
+#: .\wedish_accounting\models.py:103
+msgid "currency"
+msgstr "valiuta"
 
-#: .\wedish_accounting\models.py:76
-msgid "Start date"
-msgstr "Atidarytas"
+#: .\wedish_accounting\models.py:104
+msgid "bill"
+msgstr "sąskaita"
 
-#: .\wedish_accounting\models.py:77
-msgid "End date"
-msgstr "Uždarytas"
+#: .\wedish_accounting\models.py:111
+msgid "company name"
+msgstr "įmonės pavadinimas"
 
-#: .\wedish_accounting\models.py:91
-msgid "Payment method"
-msgstr "Mokėjimas"
+#: .\wedish_accounting\models.py:112
+msgid "business id"
+msgstr "verslo id"
 
-#: .\wedish_accounting\models.py:92
-msgid "Currency"
-msgstr "Valiuta"
+#: .\wedish_accounting\models.py:112
+msgid "company id"
+msgstr "įmonės id"
 
-#: .\wedish_menu\models.py:9 .\wedish_menu\models.py:32
-#: .\wedish_menu\models.py:48 .\wedish_pub\models.py:19
-#: .\wedish_recipy\models.py:11 .\wedish_store\models.py:35
+#: .\wedish_accounting\models.py:113
+msgid "VAT id"
+msgstr "VAT id"
+
+#: .\wedish_accounting\models.py:114
+msgid "IBAN"
+msgstr "IBAN"
+
+#: .\wedish_accounting\models.py:115
+msgid "BIC"
+msgstr "BIC kodas"
+
+#: .\wedish_accounting\models.py:116
+msgid "address"
+msgstr "adresas"
+
+#: .\wedish_accounting\models.py:118
+msgid "email"
+msgstr "elektroninis paštas"
+
+#: .\wedish_accounting\models.py:119
+msgid "phone number"
+msgstr "telefono numeris"
+
+#: .\wedish_accounting\models.py:120
+msgid "is owner"
+msgstr "savininkas"
+
+#: .\wedish_accounting\templates\wedish_accounting\bill.html:22
+#: .\wedish_menu\templates\wedish_menu\menu.html:24
+msgid "first"
+msgstr "pirmas"
+
+#: .\wedish_accounting\templates\wedish_accounting\bill.html:23
+#: .\wedish_menu\templates\wedish_menu\menu.html:25
+msgid "previous"
+msgstr "ankstesnis"
+
+#: .\wedish_accounting\templates\wedish_accounting\bill.html:25
+#: .\wedish_menu\templates\wedish_menu\menu.html:27
+msgid "of"
+msgstr "iš"
+
+#: .\wedish_accounting\templates\wedish_accounting\bill.html:27
+#: .\wedish_menu\templates\wedish_menu\menu.html:29
+msgid "next"
+msgstr "kitas"
+
+#: .\wedish_accounting\templates\wedish_accounting\bill.html:28
+#: .\wedish_menu\templates\wedish_menu\menu.html:30
+msgid "last"
+msgstr "paskutinis"
+
+#: .\wedish_accounting\templates\wedish_accounting\bill.html:33
+msgid "there are no bills"
+msgstr "sąskaitų nėra"
+
+#: .\wedish_accounting\templates\wedish_accounting\bill_detail.html:7
+msgid "Bill"
+msgstr "Sąskaita"
+
+#: .\wedish_menu\models.py:9 .\wedish_menu\models.py:31
+#: .\wedish_menu\models.py:47 .\wedish_pub\models.py:19
+#: .\wedish_recipy\models.py:41 .\wedish_store\models.py:35
+#: .\wedish_store\models.py:48 .\wedish_store\models.py:75
+#: .\wedish_store\models.py:87 .\wedish_store\models.py:114
 msgid "name"
 msgstr "pavadinimas"
 
@@ -118,7 +245,7 @@ msgstr "Privatus"
 msgid "publicity"
 msgstr "reklama"
 
-#: .\wedish_menu\models.py:23 .\wedish_menu\models.py:34
+#: .\wedish_menu\models.py:23 .\wedish_menu\models.py:33
 msgid "menu"
 msgstr "meniu"
 
@@ -126,44 +253,52 @@ msgstr "meniu"
 msgid "menus"
 msgstr "meniu"
 
-#: .\wedish_menu\models.py:33
+#: .\wedish_menu\models.py:32
 msgid "ex.: Salad, Roast, Pizza..."
 msgstr "pvz.: Salotos, Kepsniai, Picos.. "
 
-#: .\wedish_menu\models.py:39
+#: .\wedish_menu\models.py:38
 msgid "category"
 msgstr "kategorija"
 
-#: .\wedish_menu\models.py:40
+#: .\wedish_menu\models.py:39
 msgid "categories"
 msgstr "kategorijos"
 
-#: .\wedish_menu\models.py:49
+#: .\wedish_menu\models.py:48
 msgid "price"
 msgstr "kaina"
 
-#: .\wedish_menu\models.py:50
+#: .\wedish_menu\models.py:49
 msgid "category group"
 msgstr "kategorijų grupė"
 
-#: .\wedish_menu\models.py:51
+#: .\wedish_menu\models.py:50
 msgid "item"
-msgstr "punktas"
+msgstr "patiekalas"
 
-#: .\wedish_menu\models.py:54
-msgid "menu item"
-msgstr "meniu punktas "
+#: .\wedish_menu\models.py:51
+msgid "net price"
+msgstr "kaina neto"
 
-#: .\wedish_menu\models.py:55
+#: .\wedish_menu\models.py:52
+msgid "vat amount"
+msgstr "pvm suma"
+
+#: .\wedish_menu\models.py:56
 msgid "menu items"
-msgstr "meniu punktai"
+msgstr "patiekalai"
+
+#: .\wedish_menu\templates\wedish_menu\menu.html:35
+msgid "there are no items in menu"
+msgstr "patiekalų nėra"
 
 #: .\wedish_pub\models.py:7 .\wedish_pub\models.py:11
 msgid "space category"
 msgstr "restorano zona"
 
 #: .\wedish_pub\models.py:8 .\wedish_pub\models.py:22
-#: .\wedish_recipy\models.py:25 .\wedish_store\models.py:37
+#: .\wedish_recipy\models.py:54 .\wedish_store\models.py:37
 msgid "description"
 msgstr "aprašymas"
 
@@ -191,93 +326,184 @@ msgstr "zona"
 msgid "spaces"
 msgstr "zonos"
 
-#: .\wedish_pub\models.py:34
+#: .\wedish_pub\models.py:33
 msgid "public identifier"
 msgstr "identifikatorius"
 
 #: .\wedish_pub\models.py:39
-msgid "table"
-msgstr "stalas"
-
-#: .\wedish_pub\models.py:40
 msgid "tables"
 msgstr "stalai"
 
-#: .\wedish_recipy\admin.py:21
-msgid "wedish recipy admin"
-msgstr "wedish recepto adminas"
+#: .\wedish_recipy\models.py:27
+msgid "rate"
+msgstr "tarifas"
 
-#: .\wedish_recipy\admin.py:22
-msgid "wedish recipy administration"
-msgstr "wedish recepto administratorius"
+#: .\wedish_recipy\models.py:28
+msgid "start date"
+msgstr "atidarytas"
 
-#: .\wedish_recipy\models.py:14
+#: .\wedish_recipy\models.py:29
+msgid "end date"
+msgstr "uždarytas"
+
+#: .\wedish_recipy\models.py:43
 msgid "dish"
 msgstr "patiekalas"
 
-#: .\wedish_recipy\models.py:15
+#: .\wedish_recipy\models.py:44
 msgid "drink"
 msgstr "gėrimas"
 
-#: .\wedish_recipy\models.py:16
+#: .\wedish_recipy\models.py:45 .\wedish_store\models.py:117
 msgid "service"
 msgstr "aptarnavimas"
 
-#: .\wedish_recipy\models.py:19
-msgid "Status"
-msgstr "Statusas"
+#: .\wedish_recipy\models.py:48
+msgid "status"
+msgstr "statusas"
 
-#: .\wedish_recipy\models.py:21
+#: .\wedish_recipy\models.py:50
 msgid "recommended retail price"
 msgstr "rekomenduojama mažmeninė kaina"
 
-#: .\wedish_recipy\models.py:23 .\wedish_store\models.py:36
+#: .\wedish_recipy\models.py:52 .\wedish_store\models.py:36
 msgid "picture"
 msgstr "nuotrauka"
 
-#: .\wedish_recipy\models.py:26 .\wedish_store\models.py:38
+#: .\wedish_recipy\models.py:55 .\wedish_store\models.py:38
 msgid "created at"
 msgstr "sukūrimo vieta"
 
-#: .\wedish_recipy\models.py:30 .\wedish_recipy\models.py:41
+#: .\wedish_recipy\models.py:56
+msgid "VAT"
+msgstr "PVM"
+
+#: .\wedish_recipy\models.py:59 .\wedish_recipy\models.py:71
 msgid "good"
 msgstr "produktas"
 
-#: .\wedish_recipy\models.py:31
+#: .\wedish_recipy\models.py:60
 msgid "goods"
 msgstr "produktai"
 
-#: .\wedish_recipy\models.py:48
+#: .\wedish_recipy\models.py:78
 msgid "ingredient"
 msgstr "sudėtinė dalis"
 
-#: .\wedish_recipy\models.py:52
-msgid "quantity"
-msgstr "kiekis"
-
-#: .\wedish_recipy\models.py:55
+#: .\wedish_recipy\models.py:85
 msgid "unit"
 msgstr "vienetas"
 
-#: .\wedish_recipy\models.py:62
+#: .\wedish_recipy\models.py:92
 msgid "good ingredient"
 msgstr "produkto sudėtinė dalis"
 
-#: .\wedish_recipy\models.py:63
+#: .\wedish_recipy\models.py:93
 msgid "good ingredients"
-msgstr "daikto sudėtinės dalys"
+msgstr "produkto sudėtinės dalys"
+
+#: .\wedish_site\admin.py:5
+msgid "wedish admin"
+msgstr "wedish administratorius"
+
+#: .\wedish_site\admin.py:6
+msgid "wedish administration"
+msgstr "wedish administracija"
+
+#: .\wedish_site\templates\registration\login.html:5
+#: .\wedish_site\templates\registration\login.html:26
+#: .\wedish_site\templates\wedish_site\navigation.html:12
+#: .\wedish_site\templates\wedish_site\register.html:29
+msgid "Login"
+msgstr "Prisijungti"
+
+#: .\wedish_site\templates\registration\login.html:7
+msgid "Login error, please try again."
+msgstr "Prisijungimo klaida, bandykite dar kartą."
+
+#: .\wedish_site\templates\registration\login.html:11
+msgid "You do not have persmission to see that page."
+msgstr "Neturite leidimo matyti šio puslapio."
+
+#: .\wedish_site\templates\registration\login.html:17
+#: .\wedish_site\templates\wedish_site\register.html:11
+msgid "Username"
+msgstr "Vartotojas"
+
+#: .\wedish_site\templates\registration\login.html:21
+#: .\wedish_site\templates\wedish_site\register.html:21
+msgid "Password"
+msgstr "Slaptažodis"
+
+#: .\wedish_site\templates\registration\login.html:23
+msgid "Forgot password"
+msgstr "Pamiršote slaptažodį?"
+
+#: .\wedish_site\templates\registration\login.html:23
+msgid "Reset password"
+msgstr "Atkurti slaptažodį"
 
 #: .\wedish_site\templates\wedish_site\base.html:12
 msgid "Wedish"
 msgstr "Wedish"
 
-#: .\wedish_site\templates\wedish_site\base.html:22
+#: .\wedish_site\templates\wedish_site\navigation.html:9
 msgid "Home"
 msgstr "Vietinis"
 
-#: .\wedish_site\templates\wedish_site\base.html:24
+#: .\wedish_site\templates\wedish_site\navigation.html:11
+#: .\wedish_site\templates\wedish_site\register.html:6
+#: .\wedish_site\templates\wedish_site\register.html:31
+msgid "Register"
+msgstr "Registruotis"
+
+#: .\wedish_site\templates\wedish_site\navigation.html:14
+msgid "Profile"
+msgstr "Profilis"
+
+#: .\wedish_site\templates\wedish_site\navigation.html:15
+msgid "Logout"
+msgstr "Atsijungti"
+
+#: .\wedish_site\templates\wedish_site\navigation.html:18
 msgid "Admin"
 msgstr "Adminas"
+
+#: .\wedish_site\templates\wedish_site\profile.html:6
+msgid "Profile of"
+msgstr "Profilis"
+
+#: .\wedish_site\templates\wedish_site\profile.html:16
+msgid "First Name"
+msgstr "Vardas"
+
+#: .\wedish_site\templates\wedish_site\profile.html:20
+msgid "Last Name"
+msgstr "Pavardė"
+
+#: .\wedish_site\templates\wedish_site\profile.html:23
+msgid "Update"
+msgstr "Atnaujinti"
+
+#: .\wedish_site\templates\wedish_site\register.html:26
+msgid "Confirm password"
+msgstr "Patvirtinti slaptažodį"
+
+#: .\wedish_site\templates\wedish_site\register.html:29
+msgid "Already registered"
+msgstr "Jau užregistruotas"
+
+#: .\wedish_site\views.py:23
+msgid "Your profile was created successfully"
+msgstr "Jūsų profilis sėkmingai sukurtas"
+
+#: .\wedish_site\views.py:54
+msgid "Profile updated successfuly."
+msgstr "Profilis sėkmingai atnaujintas."
+
+#: .\wedish_store\admin.py:43 .\wedish_store\models.py:67
+msgid "products"
+msgstr "produktai"
 
 #: .\wedish_store\models.py:10
 msgid "kilograms"
@@ -351,35 +577,58 @@ msgstr "sieros dioksidas ir sulfitai > 10 ppm"
 msgid "tree nuts"
 msgstr "riešutai"
 
-#: .\wedish_store\models.py:48 .\wedish_store\models.py:75
-#: .\wedish_store\models.py:87
-msgid "Name"
-msgstr "Pavadinimas"
-
 #: .\wedish_store\models.py:53
-msgid "Brand"
-msgstr "Prekės ženklas"
+msgid "brand"
+msgstr "prekės ženklas"
 
-#: .\wedish_store\models.py:61 .\wedish_store\models.py:99
-msgid "Generic Product"
-msgstr "Bendras produktas"
-
-#: .\wedish_store\models.py:66 .\wedish_store\models.py:92
-msgid "Product"
-msgstr "Produktas"
-
-#: .\wedish_store\models.py:67
-msgid "Products"
-msgstr "Produktai"
-
-#: .\wedish_store\models.py:78
+#: .\wedish_store\models.py:61 .\wedish_store\models.py:78
 msgid "generic product"
 msgstr "bendras produktas"
+
+#: .\wedish_store\models.py:66 .\wedish_store\models.py:92
+msgid "product"
+msgstr "produktas"
 
 #: .\wedish_store\models.py:79
 msgid "generic products"
 msgstr "bendri produktai"
 
-#: .\wedish_store\models.py:106 .\wedish_store\models.py:107
-msgid "Product Allergen"
-msgstr "Alergenas"
+#: .\wedish_store\models.py:99
+msgid "generic groduct"
+msgstr "bendras produktas"
+
+#: .\wedish_store\models.py:106
+msgid "product allergen"
+msgstr "alergenas"
+
+#: .\wedish_store\models.py:107
+msgid "product allergens"
+msgstr "alergenai"
+
+#: .\wedish_store\models.py:118
+msgid "services"
+msgstr "aptarnavimai"
+
+#~ msgid "Availability"
+#~ msgstr "Prieinamumas"
+
+#~ msgid "Price"
+#~ msgstr "Kaina"
+
+#~ msgid "Space"
+#~ msgstr "Zona"
+
+#~ msgid "Menu item"
+#~ msgstr "Meniu punktas"
+
+#~ msgid "Quantity"
+#~ msgstr "Kiekis"
+
+#~ msgid "Tips"
+#~ msgstr "Arbatpinigiai"
+
+#~ msgid "Rate"
+#~ msgstr "Kursas"
+
+#~ msgid "Generic Product"
+#~ msgstr "Bendras produktas"

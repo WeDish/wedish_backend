@@ -96,7 +96,7 @@ class ProductAllergen(models.Model):
             GenericProduct,
             null=True,
             on_delete=models.CASCADE,
-            verbose_name=_("generic groduct"),
+            verbose_name=_("generic product"),
             related_name='allergens',
         )
 
