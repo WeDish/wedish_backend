@@ -9,8 +9,7 @@ python manage.py loaddata ../countries.json
 ## Weasyprint requires GTK libraries
 In case of Windows you can download them [from here](https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer/releases/download/2022-01-04/gtk3-runtime-3.24.31-2022-01-04-ts-win64.exe).
 
--------------------------------------------
-Graph models su pygraphviz
+## Graph models su pygraphviz
 norint gauti modelį reikalinga komanda:
 
 ```
@@ -18,7 +17,6 @@ python manage.py graph_models -a -g -o my_project_visualized.png
 ```
 
 Gali būti kad Windows naudotojai turės problemų Visual C/C++, tuomet skaitome https://pygraphviz.github.io/documentation/stable/install.html#windows-install ar http://www.graphviz.org/  
-
 
 ## Deployment'as su docker'iu
 ```
@@ -50,3 +48,14 @@ docker-compose down
 
 5) If "hosts" file successfully updated, got to file properties and check "Read-only" checkbox
 6) Project can be launched via docker and accessed using and internet browser by inputting "http://wedish.local/"
+
+## Stripe
+```
+Registruojam stripe sąsają.
+www.stripe.com
+```
+Prisijungus, API keys surandame: 
+https://dashboard.stripe.com/test/apikeys
+```
+Implementacija:
+https://stripe.com/docs/checkout/quickstart
