@@ -1,15 +1,21 @@
+from msilib.schema import ListView
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.conf import settings
-from django.views import generic
+from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.shortcuts import render, get_object_or_404
-from django.utils.translation import gettext_lazy as _
+from django.views.generic import CreateView, ListView, DetailView
 from .models import Table
-from wedish_accounting.models import Order, OrderLine
+from wedish_accounting.models import Order
 
-# Create your views here.
 
-class BarAreaView(LoginRequiredMixin, generic.ListView):
+class TableBooking(LoginRequiredMixin, CreateView):
+    model = Table
+    fields = ['public_identifier', 'space']
+    template_name = 'wedish_pub/table_booking.html'
+    success_url = reverse_lazy('wedish_pub:table_booking')
+
+
+class BarAreaView(LoginRequiredMixin, ListView):
     model = Table
     template_name = 'wedish_pub/bar.html'
     query_set = Table.objects.all()
@@ -17,7 +23,7 @@ class BarAreaView(LoginRequiredMixin, generic.ListView):
     redirect_field_name = 'redirect_to'
 
 
-class BarTableView(LoginRequiredMixin, generic.DetailView):
+class BarTableView(LoginRequiredMixin, DetailView):
     model = Table
     template_name = 'wedish_pub/bar_table.html'
     context_object_name = 'table'
