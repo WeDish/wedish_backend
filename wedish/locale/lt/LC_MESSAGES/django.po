@@ -23,7 +23,7 @@ msgstr ""
 #: .\templates\registration\password_reset_complete.html:3
 #: .\templates\registration\password_reset_complete.html:5
 msgid "Password reset complete"
-msgstr "Slaptažodis atkurtas"
+msgstr "Slaptažodis nustatytas iš naujo"
 
 #: .\templates\registration\password_reset_complete.html:6
 msgid "Your new password has been set. You can"
@@ -251,7 +251,7 @@ msgstr "meniu"
 
 #: .\wedish_menu\models.py:24
 msgid "menus"
-msgstr "meniu"
+msgstr "meniukai"
 
 #: .\wedish_menu\models.py:32
 msgid "ex.: Salad, Roast, Pizza..."
@@ -449,7 +449,7 @@ msgstr "Wedish"
 
 #: .\wedish_site\templates\wedish_site\navigation.html:9
 msgid "Home"
-msgstr "Vietinis"
+msgstr "Apie mus"
 
 #: .\wedish_site\templates\wedish_site\navigation.html:11
 #: .\wedish_site\templates\wedish_site\register.html:6
