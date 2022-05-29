@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-25 18:54+0300\n"
+"POT-Creation-Date: 2022-05-29 20:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgid "Password reset complete"
 msgstr "Slaptažodis nustatytas iš naujo"
 
 #: .\templates\registration\password_reset_complete.html:6
-msgid "Your new password has been set. You can"
+msgid "Your new password has been set. You can register now"
 msgstr "Jūsų slaptažodis nustatytas iš naujo. Galite prisijungti"
 
 #: .\templates\registration\password_reset_complete.html:6
@@ -58,23 +58,31 @@ msgid "Check your inbox"
 msgstr "Patikrinkite savo elektroninį paštą"
 
 #: .\templates\registration\password_reset_done.html:5
-msgid "We\\"
-msgstr "Elektroniniu paštu jums išsiuntėme instrukcijas, kaip iš naujo atkurti slaptažodį. Netrukus turėtumėte gauti elektroninį laišką!"
+msgid ""
+"We\\ have emailed you instructions for reseting your password. You should "
+"receive the email shortly!"
+msgstr ""
 
 #: .\templates\registration\password_reset_email.html:2
 msgid ""
-"n"
-"Someone has sent you this link to reset your password. If it was you, "
-"please follow the link."
-msgstr "Jums buvo išsiųsta slaptažodžio atkūrimo nuoroda. Jei tai buvote jūs, paspauskite ant šios nuorodos."
+"\n"
+"\tSomeone has sent you this link to reset your password. If it was you, "
+"please follow the link.\n"
+msgstr ""
+"Jums buvo išsiųsta slaptažodžio atkūrimo nuoroda. Jei tai buvote jūs, "
+"paspauskite ant šios nuorodos."
 
 #: .\templates\registration\password_reset_form.html:5
-msgid "Forgot Password"
+msgid "Forgot Password?"
 msgstr "Pamiršote slaptažodį?"
 
 #: .\templates\registration\password_reset_form.html:6
-msgid "Enter your email address below, and we\\"
-msgstr "Toliau įveskite savo elektroninio pašto adresą ir mes atsiųsime instrukcijas, kaip nustatyti naują"
+msgid ""
+"Enter your email address below, and we\\ will email instructions for setting "
+"a new one"
+msgstr ""
+"Toliau įveskite savo elektroninio pašto adresą ir mes atsiųsime "
+"instrukcijas, kaip nustatyti naują"
 
 #: .\templates\registration\password_reset_form.html:13
 #: .\wedish_site\forms.py:8 .\wedish_site\templates\wedish_site\profile.html:11
@@ -289,7 +297,7 @@ msgstr "pvm suma"
 msgid "menu items"
 msgstr "patiekalai"
 
-#: .\wedish_menu\templates\wedish_menu\menu.html:35
+#: .\wedish_menu\templates\wedish_menu\menu.html:36
 msgid "there are no items in menu"
 msgstr "patiekalų nėra"
 
@@ -412,7 +420,7 @@ msgstr "wedish administracija"
 
 #: .\wedish_site\templates\registration\login.html:5
 #: .\wedish_site\templates\registration\login.html:26
-#: .\wedish_site\templates\wedish_site\navigation.html:12
+#: .\wedish_site\templates\wedish_site\navigation.html:16
 #: .\wedish_site\templates\wedish_site\register.html:29
 msgid "Login"
 msgstr "Prisijungti"
@@ -436,38 +444,74 @@ msgid "Password"
 msgstr "Slaptažodis"
 
 #: .\wedish_site\templates\registration\login.html:23
-msgid "Forgot password"
+msgid "Forgot password?"
 msgstr "Pamiršote slaptažodį?"
 
 #: .\wedish_site\templates\registration\login.html:23
 msgid "Reset password"
 msgstr "Atkurti slaptažodį"
 
-#: .\wedish_site\templates\wedish_site\base.html:12
+#: .\wedish_site\templates\wedish_site\base.html:14
 msgid "Wedish"
 msgstr "Wedish"
 
-#: .\wedish_site\templates\wedish_site\navigation.html:9
-msgid "Home"
-msgstr "Apie mus"
+#: .\wedish_site\templates\wedish_site\base.html:56
+msgid "Privacy Policy"
+msgstr "Privatumo politika"
 
-#: .\wedish_site\templates\wedish_site\navigation.html:11
+#: .\wedish_site\templates\wedish_site\base.html:57
+msgid "Terms of Use"
+msgstr "Naudojimo sąlygos"
+
+#: .\wedish_site\templates\wedish_site\index.html:13
+msgid "Welcome To Our Restaurant!"
+msgstr "Sveiki atvykę į mūsų restoraną!"
+
+#: .\wedish_site\templates\wedish_site\index.html:14
+msgid "It is Nice To Meet You"
+msgstr "Malonu Jus matyti"
+
+#: .\wedish_site\templates\wedish_site\index.html:21
+msgid "We offer"
+msgstr "Mes siūlome"
+
+#: .\wedish_site\templates\wedish_site\index.html:29
+msgid "Modern Food"
+msgstr "Šiuolaikiškas maistas"
+
+#: .\wedish_site\templates\wedish_site\index.html:36
+msgid "Fresh Food"
+msgstr "Šviežias maista"
+
+#: .\wedish_site\templates\wedish_site\index.html:43
+msgid "Eco Friendly"
+msgstr "Ekologiškas maistas"
+
+#: .\wedish_site\templates\wedish_site\navigation.html:12
+msgid "Home"
+msgstr "Apie"
+
+#: .\wedish_site\templates\wedish_site\navigation.html:13
+msgid "Menu"
+msgstr "Meniu"
+
+#: .\wedish_site\templates\wedish_site\navigation.html:15
 #: .\wedish_site\templates\wedish_site\register.html:6
 #: .\wedish_site\templates\wedish_site\register.html:31
 msgid "Register"
-msgstr "Registruotis"
+msgstr "Registracija"
 
-#: .\wedish_site\templates\wedish_site\navigation.html:14
+#: .\wedish_site\templates\wedish_site\navigation.html:18
 msgid "Profile"
 msgstr "Profilis"
 
-#: .\wedish_site\templates\wedish_site\navigation.html:15
+#: .\wedish_site\templates\wedish_site\navigation.html:19
 msgid "Logout"
-msgstr "Atsijungti"
+msgstr "Atsijungimas"
 
-#: .\wedish_site\templates\wedish_site\navigation.html:18
+#: .\wedish_site\templates\wedish_site\navigation.html:22
 msgid "Admin"
-msgstr "Adminas"
+msgstr "Administratorius"
 
 #: .\wedish_site\templates\wedish_site\profile.html:6
 msgid "Profile of"
@@ -487,14 +531,16 @@ msgstr "Atnaujinti"
 
 #: .\wedish_site\templates\wedish_site\register.html:26
 msgid "Confirm password"
-msgstr "Patvirtinti slaptažodį"
+msgstr "Patvirtinkite slaptažodį"
 
 #: .\wedish_site\templates\wedish_site\register.html:29
 msgid "Already registered"
 msgstr "Jau užregistruotas"
 
 #: .\wedish_site\views.py:23
-msgid "Your profile was created successfully"
+#, fuzzy
+#| msgid "Your profile was created successfully"
+msgid "Your profile was created successfully."
 msgstr "Jūsų profilis sėkmingai sukurtas"
 
 #: .\wedish_site\views.py:54
@@ -582,6 +628,7 @@ msgid "brand"
 msgstr "prekės ženklas"
 
 #: .\wedish_store\models.py:61 .\wedish_store\models.py:78
+#: .\wedish_store\models.py:99
 msgid "generic product"
 msgstr "bendras produktas"
 
@@ -592,10 +639,6 @@ msgstr "produktas"
 #: .\wedish_store\models.py:79
 msgid "generic products"
 msgstr "bendri produktai"
-
-#: .\wedish_store\models.py:99
-msgid "generic groduct"
-msgstr "bendras produktas"
 
 #: .\wedish_store\models.py:106
 msgid "product allergen"
@@ -609,6 +652,14 @@ msgstr "alergenai"
 msgid "services"
 msgstr "aptarnavimai"
 
+#~ msgid "We\\"
+#~ msgstr ""
+#~ "Elektroniniu paštu jums išsiuntėme instrukcijas, kaip iš naujo atkurti "
+#~ "slaptažodį. Netrukus turėtumėte gauti elektroninį laišką!"
+
+#~ msgid "generic groduct"
+#~ msgstr "bendras produktas"
+
 #~ msgid "Availability"
 #~ msgstr "Prieinamumas"
 
@@ -617,9 +668,6 @@ msgstr "aptarnavimai"
 
 #~ msgid "Space"
 #~ msgstr "Zona"
-
-#~ msgid "Menu item"
-#~ msgstr "Meniu punktas"
 
 #~ msgid "Quantity"
 #~ msgstr "Kiekis"

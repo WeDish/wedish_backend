@@ -20,7 +20,7 @@ class UserRegisterView(SuccessMessageMixin, CreateView):
     template_name = 'wedish_site/register.html'
     success_url = reverse_lazy('login')
     form_class = UserRegisterForm
-    success_message = _('Your profile was created successfully')
+    success_message = _('Your profile was created successfully.')
 
 
 class UserProfileView(LoginRequiredMixin, DetailView, FormMixin):
