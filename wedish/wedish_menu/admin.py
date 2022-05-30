@@ -8,8 +8,23 @@ from .models import Menu, Category, MenuItem
 
 menu_item = select2_modelform(MenuItem, attrs={'width': '250px'})
 
+class MenuItemInline(admin.TabularInline):
+    model = MenuItem
+    form = menu_item
+    show_change_link = True
+    exclude = ['net_price', 'vat_amount']
 
-class MenuItemLineInline(admin.TabularInline):
+    class Media:
+        js = (
+            '/static/js/get_wedish_recipy_goods_values.js',
+        )
+
+
+class CategoryInline(admin.TabularInline):
+    model = Category
+    show_change_link = True
+
+class MenuItemInline(admin.TabularInline):
     model = MenuItem
     form = menu_item
     show_change_link = True
@@ -25,13 +40,14 @@ class MenuAdmin(admin.ModelAdmin):
     list_display = ('name', 'valid_from', 'valid_until', 'publicity')
     search_fields = ('name',)
     list_filter = ('valid_from', 'valid_until', 'publicity')
+    inlines = (CategoryInline,)
 
 
 class CategoryAdmin(TreeAdmin):
     list_display = ('name', 'menu',)
     form = movenodeform_factory(Category)
     list_filter = ('menu',)
-    inlines = (MenuItemLineInline,)
+    inlines = (MenuItemInline,)
 
 
 class MenuItemAdmin(admin.ModelAdmin):
