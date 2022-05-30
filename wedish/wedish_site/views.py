@@ -102,4 +102,3 @@ def profile(request):
         form = UserUpdateForm(instance=request.user)
     context = {'form' : form,}
     return render (request, 'wedish_site/profile.html', context=context)
-    
