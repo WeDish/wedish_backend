@@ -1,0 +1,50 @@
+{% extends 'wedish_site/base.html' %}
+{% load i18n static %}
+
+{% block content %}
+<div>
+    <section>
+        <h1>{% trans 'Invoice' %}</h1>
+        <h1>{% trans 'Seller' %}</h1>
+        <p>Address: {{ invoice_detail.company.address }} - Country: {{ invoice_detail.company.country }}</p>
+        <p>Busines ID: {{ invoice_detail.company.business_id }}</p>
+        <p>VAT: {{ invoice_detail.company.vat_id }}</p>
+        <p>Phone number: {{ invoice_detail.company.phone_number }}</p>
+        <p>IBAN: {{ invoice_detail.company.iban }}</p>
+        <p>BIC: {{ invoice_detail.company.bic }}</p>
+        <p>Email: {{ invoice_detail.company.email }}</p>
+    </section>
+</div>
+<div>
+    <section>
+        <h1>{% trans 'Customer' %}</h1>
+        <p>Customer name: {{ invoice_detail.user }}</p>
+        <p>Table: {{ invoice_detail.table.space }}</p>
+    </section>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col" class="text-center">Item</th>
+            <th scope="col" class="text-center">Quantity</th>
+            <th scope="col" class="text-center">Price</th>
+            <th scope="col" class="text-center">Total price</th>
+        </tr>
+    </thead>
+<tbody> 
+    {% if invoice_detail.order_lines %} 
+    {% for order_line in invoice_detail.order_lines.all %} 
+<tr>
+    <th scope="row">{{ order_line.id}}</th>
+    <td class="text-center">{{ order_line.menu_item.name}}</td>
+    <td class="text-center">{{ order_line.quantity }}</td>
+    <td class="text-center">{{ order_line.menu_item.price }}</td>
+    <td class="text-center">{{ order_line.total_price }}</td>
+
+</tr>
+    {% endfor %}
+    {% endif %}
+</tbody> 
+</table>
+{% endblock content %}
