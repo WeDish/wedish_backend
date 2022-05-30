@@ -34,7 +34,7 @@ class Order(models.Model):
     @property
     def get_total_price(self):
         self.total_price = 0
-        for line in self.places.all():
+        for line in self.order_lines.all():
             self.total_price += line.total_price
         return self.total_price
 
@@ -51,13 +51,13 @@ class OrderLine(models.Model):
         verbose_name=_('menu item'),
         related_name='menu_items',
     )
-    quantity = models.DecimalField(_('quantity'), max_digits=10, decimal_places=3)
+    quantity = models.IntegerField(_('quantity'))
     order = models.ForeignKey(
         Order,
         on_delete=models.CASCADE,
         null=True,
         verbose_name=_('order'),
-        related_name='places',
+        related_name='order_lines',
     )
     total_price = models.DecimalField(_('total price'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
    

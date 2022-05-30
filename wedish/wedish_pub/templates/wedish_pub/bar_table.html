@@ -1,0 +1,45 @@
+{% extends 'wedish_site/base.html' %}
+{% load i18n %}
+
+{% block content %}
+
+<h1>{{ table.space }}</h1>
+{% if table.occupied %}
+    {% for order in orders.all %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Pcs</th>
+                <th scope="col">Name</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for order_line in order.order_lines.all %}
+                <tr>
+                    <td>{{order_line.quantity}}</td>
+                    <td>{{order_line.menu_item}}</td>
+                </tr>
+                {% endfor %}
+            
+            </tbody>
+        </table>
+        
+
+        <h1>Total: {{ order.total_price }} EUR</h1>
+    {% endfor %}
+
+{% else %}
+      <form action="POST">
+        <button type="button" class="btn btn-outline-success">Open table</button>
+      </form>  
+
+{%endif%}
+
+<!-- To get total price -->
+
+<div class="fixed-bottom">
+    <button type="button" class="btn btn-outline-primary">Add item</button>
+    <button type="button" class="btn btn-outline-success">Pay</button>
+</div>
+
+{% endblock content %}

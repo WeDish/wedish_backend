@@ -33,6 +33,7 @@ class Table(models.Model):
     public_identifier = models.PositiveIntegerField(_('public identifier'), default=0)
     space = models.ForeignKey(Space, on_delete=models.SET_NULL, null=True, verbose_name='space', related_name='tables')
     seats_number = models.PositiveIntegerField('seats number', default=1)
+    occupied = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = _('table')
