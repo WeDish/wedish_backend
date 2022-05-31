@@ -35,6 +35,7 @@ services:       # services yra konteinerių sąrašas
       # DJANGO_SETTINGS_MODULE: projektas.settings
     command: >
       bash -c "python wait_for_postgres.py &&
+               python manage.py makemigrations &&
                python manage.py migrate &&
                python manage.py collectstatic --noinput &&
                gunicorn wedish.wsgi --bind 0.0.0.0:8000"
