@@ -301,6 +301,10 @@ msgstr "patiekalai"
 msgid "there are no items in menu"
 msgstr "patiekalų nėra"
 
+#: .\wedish_menu\templates\wedish_menu\menu.html:36
+msgid "there are no items in menu"
+msgstr "meniu nėra įrašų"
+
 #: .\wedish_pub\models.py:7 .\wedish_pub\models.py:11
 msgid "space category"
 msgstr "restorano zona"

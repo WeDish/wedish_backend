@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext_lazy as _
 from rest_framework import generics, permissions
-from .models import Bill, Company, Order
+from .models import Bill, Company, Order, OrderLine
 from django.core.paginator import Paginator
 from django.template.loader import get_template
 from django.http import HttpResponse
@@ -12,10 +12,9 @@ from weasyprint import HTML, CSS
 import datetime
 
 from django.template.loader import render_to_string
-import tempfile
-from django.db.models import Sum
 from io import BytesIO
 import weasyprint
+from django.contrib.admin.views.decorators import staff_member_required
 
 class BillListView(generic.ListView):
     model = Bill
@@ -49,7 +48,25 @@ def bill_summary(request, pk):
     }
     return render_pdf_view(template, context, request)
 
+class InvoiceListView(generic.ListView):
+    model = Order
+    template_name = 'wedish_accounting/invoice.html'
+    context_object_name = 'invoices'
+    queryset = Order.objects.all()
+    paginate_by = 5
 
 
+class InvoiceDetailView(generic.DetailView):
+    model = Order
+    template_name = 'wedish_accounting/invoice_detail.html'
+    context_object_name = 'invoice_detail'
 
+@staff_member_required
+def invoice_detail_pdf(request, pk):
+    template = get_template('wedish_accounting/invoice_detail.html')
+    invoice_detail = Order.objects.get(pk=pk)
+    context = {
+        'invoice_detail': invoice_detail,
+    }
+    return render_pdf_view(template, context, request)
 

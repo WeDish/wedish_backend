@@ -11,6 +11,14 @@ from wedish_recipy.models import Country
 class Order(models.Model):
     estimated_to_complete = models.DateTimeField(_('estimated to complete'), null=True, blank=True)
     completed_at = models.DateTimeField(_('completed_at'), null=True, blank=True, db_index=True)
+    company = models.ForeignKey(
+        'Company',
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        verbose_name=_('company'),
+        related_name='companies',
+    )
     table = models.ForeignKey(
         Table,
         on_delete=models.CASCADE,
@@ -19,7 +27,7 @@ class Order(models.Model):
         related_name='tables',
     )
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, related_name='order_for_user')
-    server = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, related_name='order_for_staff') #qurysetus admine darytis is staff true
+    server = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, related_name='order_for_staff')
     total_price = models.DecimalField(
         _('total price'), null=True, max_digits=10, decimal_places=2, blank=True)
 
@@ -34,7 +42,7 @@ class Order(models.Model):
     @property
     def get_total_price(self):
         self.total_price = 0
-        for line in self.places.all():
+        for line in self.order_lines.all():
             self.total_price += line.total_price
         return self.total_price
 
@@ -51,13 +59,13 @@ class OrderLine(models.Model):
         verbose_name=_('menu item'),
         related_name='menu_items',
     )
-    quantity = models.DecimalField(_('quantity'), max_digits=10, decimal_places=3)
+    quantity = models.IntegerField(_('quantity'))
     order = models.ForeignKey(
         Order,
         on_delete=models.CASCADE,
         null=True,
         verbose_name=_('order'),
-        related_name='places',
+        related_name='order_lines',
     )
     total_price = models.DecimalField(_('total price'), max_digits=10, decimal_places=2, blank=True, null=True, default=0)
    
@@ -110,9 +118,9 @@ class Payment(models.Model):
 class Company(models.Model):
     company_name = models.CharField(_('company name'), max_length=100, db_index=True, unique=True)
     business_id = models.DecimalField(_('business id'), max_digits=20, decimal_places=0, unique=True, help_text = _('company id'))
-    VAT_id = models.CharField(_('VAT id'), max_length=12, db_index=True, unique=True)
-    IBAN = models.CharField(_('IBAN'), max_length=34, db_index=True, null=True, blank=True)
-    BIC = models.CharField(_('BIC'), max_length=11, null=True, blank=True)
+    vat_id = models.CharField(_('VAT id'), max_length=12, db_index=True, unique=True)
+    iban = models.CharField(_('IBAN'), max_length=34, db_index=True, null=True, blank=True)
+    bic = models.CharField(_('BIC'), max_length=11, null=True, blank=True)
     address = models.CharField(_('address'), max_length=200)
     country = models.ForeignKey(Country, on_delete=models.CASCADE, null=True)
     email = models.EmailField(_('email'), max_length=150, blank=True, null=True)
